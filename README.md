@@ -42,10 +42,11 @@ git clone <URL-del-repo>
 
 1. Abrir el proyecto con Unity Hub (carpeta raíz clonada). Unity restaura `Library/` automáticamente
    (la primera importación tarda varios minutos).
-2. Si la escena aún no existe, ejecutar el menú:
+2. En el primer arranque, la escena `Assets/Scenes/EscuelaEvacuacion.unity` se genera **sola**
+   (`AutoConstruirEscena.cs`). Para regenerarla en cualquier momento usar el menú:
    **Herramientas → Evacuation Trainer → Construir Escena Escuela (2 pisos)**.
-   Esto genera `Assets/Scenes/EscuelaEvacuacion.unity` con todo cableado (edificio, fuego,
-   señales, teleport, XR Origin, HUD y gestores).
+   El constructor crea y cablea todo: edificio de 2 pisos, fuego, señales, teleport,
+   XR Origin, HUD y gestores.
 3. Abrir `Assets/Scenes/EscuelaEvacuacion.unity` y pulsar **Play** con el visor conectado.
 4. Flujo: apareces en el **Aula 201 (piso 2)** → a los 12 s suena la **alarma** → evacúa con
    teleport (gatillo) siguiendo las **señales verdes**: pasillo → escalera de emergencia →
