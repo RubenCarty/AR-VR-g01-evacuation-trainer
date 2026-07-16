@@ -1,0 +1,36 @@
+# Unity — carpetas regenerables
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Bb]uild/
+[Bb]uilds/
+[Ll]ogs/
+[Uu]serSettings/
+[Mm]emoryCaptures/
+[Rr]ecordings/
+
+# Archivos de IDE / solución (Unity los regenera)
+*.csproj
+*.sln
+*.suo
+*.user
+*.userprefs
+*.pidb
+*.booproj
+*.svd
+*.pdb
+*.mdb
+*.opendb
+*.VC.db
+.vs/
+.idea/
+.vscode/
+
+# Crash reports y misc
+sysinfo.txt
+crashlytics-build.properties
+*.crash
+*.stackdump
+*.apk
+*.aab
+*.unitypackage
