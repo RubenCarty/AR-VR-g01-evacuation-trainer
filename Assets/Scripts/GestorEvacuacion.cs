@@ -108,7 +108,7 @@ public class GestorEvacuacion : MonoBehaviour
 
         if (AccesibilidadManager.Instance != null)
             AccesibilidadManager.Instance.MostrarSubtitulo(
-                "¡ALARMA DE INCENDIO! Evacúa por la escalera. NO uses el ascensor.",
+                "¡ALARMA DE INCENDIO! Evacúa por la escalera o la rampa accesible. NO uses el ascensor.",
                 8f, esAlerta: true);
     }
 
@@ -128,7 +128,7 @@ public class GestorEvacuacion : MonoBehaviour
 
         if (AccesibilidadManager.Instance != null)
             AccesibilidadManager.Instance.MostrarSubtitulo(
-                "¡Llegaste a la zona segura! Revisa tu evaluación. Pulsa R para reiniciar.",
+                "¡Llegaste al PUNTO DE REUNIÓN! Revisa tu evaluación. Pulsa R para reiniciar.",
                 10f, esAlerta: false);
     }
 

@@ -86,7 +86,7 @@ public class HUDEvacuacion : MonoBehaviour
 
         int min = Mathf.FloorToInt(gestor.TiempoEvacuacion / 60f);
         int seg = Mathf.FloorToInt(gestor.TiempoEvacuacion % 60f);
-        textoCronometro.text = $"⏱ {min:00}:{seg:00}";
+        textoCronometro.text = $"Tiempo {min:00}:{seg:00}";
     }
 
     private void ActualizarEstado(GestorEvacuacion.EstadoSimulacro estado)

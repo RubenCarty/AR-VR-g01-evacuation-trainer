@@ -14,12 +14,13 @@
 
 ```
 == EDIFICIO ESCUELA ==
-├── Terreno y Patio          (césped, vereda, círculo de encuentro, SalidaSegura)
+├── Terreno y Patio          (césped, veredas, 2 PUNTOS DE REUNIÓN con SalidaSegura)
 ├── Piso 1                   (pasillo central + Aula 101/102, Laboratorio, Aula 103, Dirección)
 ├── Piso 2                   (Aula 201 ← inicio, Aula 202, Biblioteca, Aula 203, Sala Profesores)
 ├── Escalera de Emergencia   (rampa + 10 peldaños + barandas; conecta pisos)
+├── Rampa Accesible          (RNE A.120: 2 tramos ~11% + descanso + pasamanos, ruta alternativa)
 ├── Ascensor                 (ruta INCORRECTA, señalizada en rojo)
-├── Senales de Evacuacion    (11 carteles emisivos con SenalEvacuacion)
+├── Senales de Evacuacion    (señalización peruana NTP 399.010: rutas, S de zona segura, extintores)
 ├── Mobiliario               (pizarras + 4 carpetas con silla por ambiente)
 └── Lamparas                 (plafones emisivos + focos puntuales)
 
@@ -56,6 +57,7 @@ Luz Direccional (Sol)
 | `HUDEvacuacion.cs` | Canvas world-space que sigue la mirada; estado, cronómetro y reporte final | Observador de eventos |
 | `SenalEvacuacion.cs` | Pulso emisivo de señales; ×2.2 de brillo en alto contraste | — |
 | `BenchmarkXR.cs` | 60 s de medición: FPS promedio, min, max, 1% low; guarda .txt | — |
+| `ControlEscritorio.cs` | Modo sin visor: WASD + ratón sobre el XR Origin; se auto-instala al dar Play solo si no hay casco activo | `RuntimeInitializeOnLoadMethod` |
 | `ConstructorEscuela.cs` (Editor) | Genera toda la escena por código: geometría, materiales, teleport, wiring | Menú de editor |
 
 ## Flujo de la aplicación

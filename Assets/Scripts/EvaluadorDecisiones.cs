@@ -49,7 +49,7 @@ public class EvaluadorDecisiones : MonoBehaviour
         if (AccesibilidadManager.Instance != null)
         {
             AccesibilidadManager.Instance.MostrarSubtitulo(
-                correcta ? $"✔ Buena decisión: {descripcion}" : $"✘ Decisión incorrecta: {descripcion}",
+                correcta ? $"Buena decisión: {descripcion}" : $"Decisión INCORRECTA: {descripcion}",
                 4f, esAlerta: !correcta);
         }
     }

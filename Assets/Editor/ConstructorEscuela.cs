@@ -29,9 +29,13 @@ public static class ConstructorEscuela
     private const float PisoDos = 3.4f;     // cota superior de la losa del piso 2
 
     // Materiales compartidos durante la construcción
+    /// <summary>Versión de la escena generada: subirla fuerza la regeneración automática.</summary>
+    public const int VersionEscena = 6;
+
     private static Material matPared, matParedInterior, matPisoPasillo, matPisoAula,
         matLosa, matTecho, matPuerta, matMadera, matPizarra, matSenal, matSenalRojo,
-        matMetal, matVerde, matLampara;
+        matMetal, matVerde, matLampara, matBlanco, matRojo, matMarco, matCasillero,
+        matMacetero, matFolaje, matMesaLab, matLibroA, matLibroB, matLibroC;
 
     [MenuItem("Herramientas/Evacuation Trainer/Construir Escena Escuela (2 pisos)")]
     public static void Construir()
@@ -39,6 +43,8 @@ public static class ConstructorEscuela
         if (!EditorSceneManager.SaveCurrentModifiedScenesIfUserWantsTo())
             return;
 
+        // Pictogramas NTP 399.010 (respeta los PNG oficiales si el usuario los colocó).
+        GeneradorTexturasSenales.GenerarTodas();
         CrearMateriales();
 
         var escena = EditorSceneManager.NewScene(NewSceneSetup.EmptyScene, NewSceneMode.Single);
@@ -50,6 +56,7 @@ public static class ConstructorEscuela
         ConstruirPiso1(edificio);
         ConstruirPiso2(edificio);
         ConstruirEscalera(edificio);
+        ConstruirRampaAccesible(edificio);
         ConstruirAscensor(edificio);
         ConstruirSenales(edificio);
         ConstruirMobiliario(edificio);
@@ -70,6 +77,10 @@ public static class ConstructorEscuela
 
         EditorSceneManager.SaveScene(escena, RutaEscena);
         AgregarABuildSettings();
+
+        // Marca de versión: AutoConstruirEscena regenera la escena si quedó desactualizada.
+        System.IO.File.WriteAllText("Assets/Scenes/EscuelaEvacuacion.version.txt", VersionEscena.ToString());
+        AssetDatabase.ImportAsset("Assets/Scenes/EscuelaEvacuacion.version.txt");
 
         Debug.Log($"[ConstructorEscuela] Escena generada y guardada en {RutaEscena}. " +
                   "Pulsa Play: apareces en el Aula 201 (piso 2); la alarma suena a los 12 s.");
@@ -99,6 +110,16 @@ public static class ConstructorEscuela
         matMetal         = Mat("Metal",           new Color(0.6f, 0.62f, 0.65f), 0.7f, 0.7f);
         matVerde         = Mat("Cesped",          new Color(0.33f, 0.52f, 0.27f), 0f, 0.15f);
         matLampara       = Mat("Lampara",         Color.white, 0f, 0.5f, new Color(1f, 0.98f, 0.9f) * 1.6f);
+        matBlanco        = Mat("Senal_Blanca",    new Color(0.95f, 0.95f, 0.93f), 0f, 0.5f, Color.white * 0.35f);
+        matRojo          = Mat("Rojo_Extintor",   new Color(0.75f, 0.08f, 0.06f), 0.2f, 0.55f);
+        matMarco         = Mat("Marco_Madera",    new Color(0.3f, 0.2f, 0.12f), 0f, 0.35f);
+        matCasillero     = Mat("Casillero",       new Color(0.35f, 0.42f, 0.55f), 0.4f, 0.55f);
+        matMacetero      = Mat("Macetero",        new Color(0.62f, 0.32f, 0.18f), 0f, 0.3f);
+        matFolaje        = Mat("Folaje",          new Color(0.2f, 0.45f, 0.18f), 0f, 0.2f);
+        matMesaLab       = Mat("Mesa_Laboratorio",new Color(0.15f, 0.15f, 0.17f), 0.1f, 0.6f);
+        matLibroA        = Mat("Libro_Rojo",      new Color(0.7f, 0.15f, 0.12f), 0f, 0.3f);
+        matLibroB        = Mat("Libro_Azul",      new Color(0.15f, 0.3f, 0.6f), 0f, 0.3f);
+        matLibroC        = Mat("Libro_Amarillo",  new Color(0.85f, 0.7f, 0.2f), 0f, 0.3f);
     }
 
     /// <summary>Crea (o reutiliza) un material URP Lit guardado como asset.</summary>
@@ -181,24 +202,35 @@ public static class ConstructorEscuela
         var grupo = Grupo("Terreno y Patio", padre);
         Caja("Terreno", new Vector3(0f, -0.1f, 0f), new Vector3(70f, 0.2f, 40f), matVerde, grupo);
 
-        // Vereda de acceso desde la puerta principal hasta el punto de encuentro.
-        Caja("Vereda", new Vector3(-17f, 0.005f, 0f), new Vector3(6f, 0.02f, 3f), matPisoPasillo, grupo);
+        // Veredas de acceso hacia los dos puntos de reunión.
+        Caja("Vereda Oeste", new Vector3(-17f, 0.005f, 0f), new Vector3(6f, 0.02f, 3f), matPisoPasillo, grupo);
+        Caja("Vereda Este", new Vector3(16.5f, 0.005f, 4.85f), new Vector3(5f, 0.02f, 3f), matPisoPasillo, grupo);
 
-        // Punto de encuentro (zona segura) en el patio oeste.
+        // Dos puntos de reunión en extremos opuestos del edificio (RNE A.130).
+        PuntoReunion(grupo, "Oeste", new Vector3(-19f, 0f, 0f));
+        PuntoReunion(grupo, "Este", new Vector3(19.5f, 0f, 4.85f));
+    }
+
+    /// <summary>Círculo verde + poste señalizado + zona segura que finaliza el simulacro.</summary>
+    private static void PuntoReunion(Transform padre, string nombre, Vector3 pos)
+    {
+        var g = Grupo($"Punto de Reunion {nombre}", padre);
+
         var circulo = GameObject.CreatePrimitive(PrimitiveType.Cylinder);
-        circulo.name = "Circulo Punto de Encuentro";
-        circulo.transform.SetParent(grupo);
-        circulo.transform.position = new Vector3(-19f, 0.02f, 0f);
+        circulo.name = "Circulo";
+        circulo.transform.SetParent(g);
+        circulo.transform.position = pos + Vector3.up * 0.02f;
         circulo.transform.localScale = new Vector3(5f, 0.02f, 5f);
         circulo.GetComponent<Renderer>().sharedMaterial = matSenal;
         Object.DestroyImmediate(circulo.GetComponent<Collider>());
 
-        var poste = Caja("Poste Encuentro", new Vector3(-19f, 1.1f, -2.6f), new Vector3(0.08f, 2.2f, 0.08f), matMetal, grupo);
-        Senal("PUNTO DE\nENCUENTRO", new Vector3(-19f, 2.1f, -2.55f), 0f, grupo, matSenal, 1.4f, 0.9f);
+        Caja("Poste", pos + new Vector3(0f, 1.4f, -2.6f), new Vector3(0.08f, 2.8f, 0.08f), matMetal, g);
+        SenalImagen("punto_reunion.png", pos + new Vector3(0f, 2.5f, -2.55f), 0f, g, 0.8f, 0.8f,
+            "PUNTO DE REUNIÓN");
 
         var salida = new GameObject("Zona Segura (SalidaSegura)");
-        salida.transform.SetParent(grupo);
-        salida.transform.position = new Vector3(-19f, 0f, 0f);
+        salida.transform.SetParent(g);
+        salida.transform.position = pos;
         salida.AddComponent<SalidaSegura>();
     }
 
@@ -211,11 +243,12 @@ public static class ConstructorEscuela
         Caja("Piso Aulas Sur P1", new Vector3(0f, -0.051f, -4.85f), new Vector3(28f, 0.1f, 6.7f), matPisoAula, g);
         Caja("Piso Aulas Norte P1", new Vector3(0f, -0.051f, 4.85f), new Vector3(28f, 0.1f, 6.7f), matPisoAula, g);
 
-        // Paredes exteriores (piso 1)
-        ParedX(g, matPared, -8f, -14f, 14f, 0f, AltoPiso);                    // sur
-        ParedX(g, matPared, 8f, -14f, 14f, 0f, AltoPiso);                     // norte
-        ParedZ(g, matPared, 14f, -8f, 8f, 0f, AltoPiso);                      // este
-        ParedZ(g, matPared, -14f, -8f, 8f, 0f, AltoPiso, 0f, 1.8f, 2.4f);     // oeste con puerta principal
+        // Paredes exteriores (piso 1) — 3 salidas al exterior en extremos
+        // opuestos (RNE A.130: vías de evacuación redundantes):
+        ParedX(g, matPared, -8f, -14f, 14f, 0f, AltoPiso, -12.5f, 1.4f, 2.3f); // sur con salida de emergencia (Aula 101)
+        ParedX(g, matPared, 8f, -14f, 14f, 0f, AltoPiso);                      // norte
+        ParedZ(g, matPared, 14f, -8f, 8f, 0f, AltoPiso, 4.85f, 1.6f, 2.4f);    // este con salida de emergencia (hall escalera)
+        ParedZ(g, matPared, -14f, -8f, 8f, 0f, AltoPiso, 0f, 1.8f, 2.4f);      // oeste con puerta principal
 
         // Pared sur del pasillo, con puertas a las aulas del sur
         ParedX(g, matParedInterior, -1.6f, -14f, -6f, 0f, AltoPiso, -10f);    // Aula 101
@@ -249,10 +282,11 @@ public static class ConstructorEscuela
         Caja("Piso Aulas Sur P2", new Vector3(0f, y0 + 0.004f, -4.85f), new Vector3(28f, 0.01f, 6.7f), matPisoAula, g);
         Caja("Piso Aulas Norte P2", new Vector3(-5f, y0 + 0.004f, 4.85f), new Vector3(18f, 0.01f, 6.7f), matPisoAula, g);
 
-        // Paredes exteriores (piso 2)
+        // Paredes exteriores (piso 2). La este tiene la puerta de la rampa
+        // de evacuación accesible, junto al descanso de la escalera.
         ParedX(g, matPared, -8f, -14f, 14f, y0, AltoPiso);
         ParedX(g, matPared, 8f, -14f, 14f, y0, AltoPiso);
-        ParedZ(g, matPared, 14f, -8f, 8f, y0, AltoPiso);
+        ParedZ(g, matPared, 14f, -8f, 8f, y0, AltoPiso, 5.2f, 1.4f, 2.3f);
         ParedZ(g, matPared, -14f, -8f, 8f, y0, AltoPiso);
 
         // Pared sur del pasillo, con puertas
@@ -312,6 +346,70 @@ public static class ConstructorEscuela
         }
     }
 
+    /// <summary>
+    /// Rampa de evacuación accesible (referencia RNE A.120 Perú) integrada a
+    /// la SALIDA de emergencia este: parte del descanso de la escalera
+    /// (piso 2), sale por la fachada este y baja en dos tramos de pendiente
+    /// suave (~12%) con descanso y pasamanos hasta el Punto de Reunión Este.
+    /// Todo el recorrido es sin escalones (apto para silla de ruedas).
+    /// </summary>
+    private static void ConstruirRampaAccesible(Transform padre)
+    {
+        var g = Grupo("Rampa Accesible (RNE A.120)", padre);
+
+        // Geometría: cada tramo baja 1.7 m en 13 m de recorrido (~13 %).
+        // La puerta este del piso 2 está en z=5.2; la plataforma la cubre y el
+        // tramo 1 arranca al sur de ella (sin superponerse en el mismo carril).
+        const float zTope = 4.4f, zFin = -8.6f;
+        float run = zTope - zFin;                        // 13 m
+        float caida = PisoDos / 2f;                      // 1.7 m por tramo
+        float largo = Mathf.Sqrt(run * run + caida * caida);
+        float angulo = Mathf.Atan2(caida, run) * Mathf.Rad2Deg;   // ≈ 7.4°
+        const float xTramo1 = 14.85f, xTramo2 = 16.4f;   // dos carriles paralelos
+        float zCentro = (zTope + zFin) / 2f;             // -2.1
+
+        // Plataforma superior frente a la puerta este del piso 2 (z 4.4..6.0)
+        Caja("Plataforma Superior", new Vector3(xTramo1, PisoDos - 0.075f, 5.2f),
+            new Vector3(1.5f, 0.15f, 1.6f), matPisoPasillo, g);
+
+        // Tramo 1: baja hacia el sur pegado a la fachada
+        var t1 = Caja("Tramo 1", new Vector3(xTramo1, (PisoDos + caida) / 2f - 0.075f, zCentro),
+            new Vector3(1.5f, 0.15f, largo + 0.2f), matPisoPasillo, g);
+        t1.transform.rotation = Quaternion.Euler(-angulo, 0f, 0f);   // -z desciende
+
+        // Descanso intermedio (giro de 180°)
+        Caja("Descanso", new Vector3((xTramo1 + xTramo2) / 2f, caida - 0.075f, -9.4f),
+            new Vector3(3.2f, 0.15f, 1.7f), matPisoPasillo, g);
+
+        // Tramo 2: regresa hacia el norte hasta el nivel del suelo
+        var t2 = Caja("Tramo 2", new Vector3(xTramo2, caida / 2f - 0.075f, zCentro),
+            new Vector3(1.5f, 0.15f, largo + 0.2f), matPisoPasillo, g);
+        t2.transform.rotation = Quaternion.Euler(angulo, 0f, 0f);    // +z desciende
+
+        // Llegada a nivel del suelo, junto a la vereda del Punto de Reunión Este
+        Caja("Plataforma Inferior", new Vector3(xTramo2, 0.01f, 5.2f),
+            new Vector3(1.5f, 0.02f, 1.6f), matPisoPasillo, g);
+
+        // Barandas (ambos lados de cada tramo, RNE A.120 exige pasamanos)
+        foreach (var (xc, rot) in new[] { (xTramo1, -angulo), (xTramo2, angulo) })
+        {
+            float yc = (xc == xTramo1 ? (PisoDos + caida) / 2f : caida / 2f) + 0.5f;
+            foreach (float dx in new[] { -0.75f, 0.75f })
+            {
+                var baranda = Caja($"Baranda x{xc + dx:F1}", new Vector3(xc + dx, yc, zCentro),
+                    new Vector3(0.06f, 0.9f, largo + 0.2f), matMetal, g);
+                baranda.transform.rotation = Quaternion.Euler(rot, 0f, 0f);
+            }
+        }
+        Caja("Baranda Descanso", new Vector3((xTramo1 + xTramo2) / 2f, caida + 0.5f, -10.2f),
+            new Vector3(3.2f, 0.9f, 0.06f), matMetal, g);
+        Caja("Baranda Plataforma", new Vector3(xTramo1 + 0.75f, PisoDos + 0.5f, 5.2f),
+            new Vector3(0.06f, 0.9f, 1.6f), matMetal, g);
+
+        // Señalización de la ruta accesible: sobre la puerta este del piso 2
+        Senal("RUTA ACCESIBLE\nRAMPA DE EVACUACIÓN", new Vector3(13.85f, PisoDos + 2.75f, 5.2f), -90f, g, matSenal, 1.5f, 0.6f);
+    }
+
     private static void ConstruirAscensor(Transform padre)
     {
         var g = Grupo("Ascensor", padre);
@@ -330,29 +428,108 @@ public static class ConstructorEscuela
     // ------------------------------------------------------------------
     private static void ConstruirSenales(Transform padre)
     {
-        var g = Grupo("Senales de Evacuacion", padre);
+        var g = Grupo("Senales de Evacuacion (NTP 399.010 Peru)", padre);
 
-        // Piso 2: guían hacia el este (escalera)
-        Senal("SALIDA →", new Vector3(-6f, PisoDos + 2.6f, 1.45f), 180f, g, matSenal);
-        Senal("SALIDA →", new Vector3(0f, PisoDos + 2.6f, 1.45f), 180f, g, matSenal);
-        Senal("ESCALERA DE\nEMERGENCIA →", new Vector3(5f, PisoDos + 2.6f, 1.45f), 180f, g, matSenal, 1.5f, 0.7f);
-        Senal("↓ BAJA POR\nLA ESCALERA", new Vector3(13.75f, PisoDos + 2.4f, 4.5f), -90f, g, matSenal, 1.5f, 0.7f);
-        Senal("NO USAR EN\nCASO DE INCENDIO", new Vector3(5.5f, PisoDos + 2.5f, 6.34f), 180f, g, matSenalRojo, 1.5f, 0.7f);
+        // ---- Piso 2: la ruta de evacuación guía hacia el este (escalera) ----
+        SenalImagen("ruta_evacuacion_der.png", new Vector3(-6f, PisoDos + 2.65f, 1.45f), 180f, g, 1.2f, 0.6f, "RUTA DE EVACUACIÓN");
+        SenalImagen("ruta_evacuacion_der.png", new Vector3(0f, PisoDos + 2.65f, 1.45f), 180f, g, 1.2f, 0.6f, "RUTA DE EVACUACIÓN");
+        Senal("SALIDA >>", new Vector3(5f, PisoDos + 2.6f, 1.45f), 180f, g, matSenal);
+        Senal("ESCALERA DE\nEVACUACIÓN - BAJE", new Vector3(13.85f, PisoDos + 2.4f, 2.9f), -90f, g, matSenal, 1.5f, 0.7f);
+        SenalImagen("no_ascensor.png", new Vector3(5.5f, PisoDos + 2.55f, 6.34f), 180f, g, 0.55f, 0.55f,
+            "EN CASO DE SISMO O INCENDIO\nNO USE EL ASCENSOR", matSenalRojo);
 
-        // Piso 1: guían hacia el oeste (puerta principal)
-        Senal("← SALIDA", new Vector3(6f, 2.6f, 1.45f), 180f, g, matSenal);
-        Senal("← SALIDA", new Vector3(0f, 2.6f, 1.45f), 180f, g, matSenal);
-        Senal("← SALIDA", new Vector3(-7f, 2.6f, 1.45f), 180f, g, matSenal);
+        // ---- Piso 1: la ruta guía hacia el oeste (puerta principal) ----
+        SenalImagen("ruta_evacuacion_izq.png", new Vector3(6f, 2.65f, 1.45f), 180f, g, 1.2f, 0.6f, "RUTA DE EVACUACIÓN");
+        SenalImagen("ruta_evacuacion_izq.png", new Vector3(0f, 2.65f, 1.45f), 180f, g, 1.2f, 0.6f, "RUTA DE EVACUACIÓN");
+        Senal("<< SALIDA", new Vector3(-7f, 2.6f, 1.45f), 180f, g, matSenal);
         Senal("SALIDA", new Vector3(-13.85f, 2.75f, 0f), 90f, g, matSenal);
-        Senal("NO USAR EN\nCASO DE INCENDIO", new Vector3(5.5f, 2.5f, 6.34f), 180f, g, matSenalRojo, 1.5f, 0.7f);
+
+        // Salidas de emergencia adicionales (este y sur, piso 1)
+        Senal("SALIDA", new Vector3(13.85f, 2.75f, 4.85f), -90f, g, matSenal);
+        Senal("SALIDA >>", new Vector3(9f, 2.6f, 7.9f), 180f, g, matSenal);
+        Senal("SALIDA DE\nEMERGENCIA", new Vector3(-12.5f, 2.45f, -7.85f), 0f, g, matSenal, 1.3f, 0.6f);
+        SenalImagen("no_ascensor.png", new Vector3(5.5f, 2.55f, 6.34f), 180f, g, 0.55f, 0.55f,
+            "EN CASO DE SISMO O INCENDIO\nNO USE EL ASCENSOR", matSenalRojo);
+
+        // ---- Zonas seguras en caso de sismo (pictograma: círculo verde con S) ----
+        SenalImagen("zona_segura_sismo.png", new Vector3(-4.1f, 1.75f, 1.3f), 180f, g, 0.55f, 0.55f,
+            "ZONA SEGURA EN\nCASO DE SISMOS", matBlanco);
+        SenalImagen("zona_segura_sismo.png", new Vector3(2.1f, PisoDos + 1.75f, -1.3f), 0f, g, 0.55f, 0.55f,
+            "ZONA SEGURA EN\nCASO DE SISMOS", matBlanco);
+
+        // ---- Extintores con su señal roja (2 por piso) ----
+        Extintor(g, new Vector3(-4.2f, 0f, -1.35f), 0f);
+        Extintor(g, new Vector3(9f, 0f, 1.35f), 180f);
+        Extintor(g, new Vector3(-4.2f, PisoDos, -1.35f), 0f);
+        Extintor(g, new Vector3(9f, PisoDos, 1.35f), 180f);
 
         // Cartel informativo en el aula de inicio
-        Senal("SIMULACRO DE EVACUACIÓN\nSigue las señales verdes", new Vector3(-10f, PisoDos + 2.2f, -7.9f), 0f, g, matSenal, 2.6f, 0.9f);
+        Senal("SIMULACRO DE EVACUACIÓN\nSigue las señales verdes hasta el\nPUNTO DE REUNIÓN del patio",
+            new Vector3(-10f, PisoDos + 2.2f, -7.9f), 0f, g, matSenal, 2.8f, 1f);
+    }
+
+    /// <summary>Extintor rojo de pared con su señal, estilo peruano.</summary>
+    private static void Extintor(Transform padre, Vector3 posPiso, float rotY)
+    {
+        var g = Grupo($"Extintor ({posPiso.x:F0},{posPiso.z:F0})", padre);
+        var rot = Quaternion.Euler(0f, rotY, 0f);
+
+        // Cuerpo del extintor colgado a 1 m del piso, pegado a la pared.
+        var cuerpo = GameObject.CreatePrimitive(PrimitiveType.Cylinder);
+        cuerpo.name = "Cuerpo";
+        cuerpo.transform.SetParent(g);
+        cuerpo.transform.position = posPiso + new Vector3(0f, 1.05f, 0f);
+        cuerpo.transform.localScale = new Vector3(0.18f, 0.28f, 0.18f);
+        cuerpo.GetComponent<Renderer>().sharedMaterial = matRojo;
+
+        var manguera = Caja("Boquilla", posPiso + new Vector3(0f, 1.38f, 0f), new Vector3(0.06f, 0.12f, 0.06f), matMetal, g);
+        manguera.transform.rotation = rot;
+
+        // Pictograma oficial "EXTINTOR" sobre el equipo.
+        SenalImagen("extintor.png", posPiso + new Vector3(0f, 1.95f, 0f) + rot * new Vector3(0f, 0f, -0.05f),
+            rotY, g, 0.45f, 0.45f, "EXTINTOR", matSenalRojo);
+    }
+
+    /// <summary>
+    /// Señal con pictograma real (PNG de Assets/Senales): quad texturizado y
+    /// levemente emisivo, con texto opcional debajo. Si el usuario colocó el
+    /// PNG oficial de INDECI con ese nombre, se usa esa imagen.
+    /// </summary>
+    private static void SenalImagen(string archivoPng, Vector3 pos, float rotY, Transform padre,
+        float ancho, float alto, string textoDebajo = null, Material materialTexto = null)
+    {
+        var quad = GameObject.CreatePrimitive(PrimitiveType.Quad);
+        quad.name = $"Pictograma {archivoPng}";
+        quad.transform.SetParent(padre);
+        // El quad se ve desde su -Z: se gira 180° para que mire hacia rotY.
+        quad.transform.SetPositionAndRotation(pos, Quaternion.Euler(0f, rotY + 180f, 0f));
+        quad.transform.localScale = new Vector3(ancho, alto, 1f);
+        Object.DestroyImmediate(quad.GetComponent<Collider>());
+        quad.GetComponent<Renderer>().sharedMaterial = MatTextura(archivoPng);
+
+        if (!string.IsNullOrEmpty(textoDebajo))
+            Senal(textoDebajo, pos + Vector3.down * (alto / 2f + 0.14f), rotY, padre,
+                materialTexto != null ? materialTexto : matSenal, ancho, 0.24f);
+    }
+
+    /// <summary>Material URP Lit con la textura del pictograma como base y emisión.</summary>
+    private static Material MatTextura(string archivoPng)
+    {
+        string nombre = $"Senal_{System.IO.Path.GetFileNameWithoutExtension(archivoPng)}";
+        var tex = AssetDatabase.LoadAssetAtPath<Texture2D>($"{GeneradorTexturasSenales.Carpeta}/{archivoPng}");
+        var m = Mat(nombre, Color.white, 0f, 0.4f, Color.white * 0.7f);
+        if (tex != null)
+        {
+            m.SetTexture("_BaseMap", tex);
+            m.SetTexture("_EmissionMap", tex);
+            EditorUtility.SetDirty(m);
+        }
+        return m;
     }
 
     /// <summary>Cartel emisivo con texto TMP. rotY = dirección hacia la que mira.</summary>
     private static GameObject Senal(string texto, Vector3 pos, float rotY, Transform padre,
-        Material material, float ancho = 1.1f, float alto = 0.45f)
+        Material material, float ancho = 1.1f, float alto = 0.45f, Color? colorTexto = null)
     {
         var placa = GameObject.CreatePrimitive(PrimitiveType.Cube);
         placa.name = $"Senal '{texto.Replace('\n', ' ')}'";
@@ -371,7 +548,7 @@ public static class ConstructorEscuela
         var tmp = textoGo.AddComponent<TextMeshPro>();
         tmp.text = texto;
         tmp.fontSize = 2.2f;
-        tmp.color = Color.white;
+        tmp.color = colorTexto ?? Color.white;
         tmp.alignment = TextAlignmentOptions.Center;
         tmp.rectTransform.sizeDelta = new Vector2(ancho * 0.95f, alto * 0.95f);
         tmp.enableAutoSizing = true;
@@ -408,28 +585,151 @@ public static class ConstructorEscuela
         {
             var ga = Grupo(aula.nombre, g);
 
-            // Pizarra en la pared más lejana al pasillo
+            // Pizarra con marco y bandeja en la pared más lejana al pasillo
             float zPizarra = aula.z < 0f ? -7.85f : 7.85f;
-            float rotPizarra = aula.z < 0f ? 0f : 180f;
-            var pizarra = Caja($"Pizarra {aula.nombre}",
-                new Vector3(aula.x, aula.y + 1.6f, zPizarra),
-                new Vector3(3f, 1.2f, 0.06f), matPizarra, ga);
-            pizarra.transform.rotation = Quaternion.Euler(0f, rotPizarra, 0f);
+            float haciaAula = aula.z < 0f ? 1f : -1f;   // normal de la pared hacia el interior
+            Caja($"Marco Pizarra", new Vector3(aula.x, aula.y + 1.6f, zPizarra),
+                new Vector3(3.2f, 1.4f, 0.05f), matMarco, ga);
+            Caja($"Pizarra", new Vector3(aula.x, aula.y + 1.6f, zPizarra + haciaAula * 0.035f),
+                new Vector3(3f, 1.2f, 0.02f), matPizarra, ga);
+            Caja($"Bandeja Plumones", new Vector3(aula.x, aula.y + 0.88f, zPizarra + haciaAula * 0.08f),
+                new Vector3(3f, 0.04f, 0.12f), matMarco, ga);
 
-            // Carpetas en cuadrícula 2x2
-            foreach (float dx in new[] { -1.6f, 1.6f })
-                foreach (float dz in new[] { -1.4f, 1.2f })
-                    Escritorio(ga, new Vector3(aula.x + dx, aula.y, aula.z + dz));
+            // Mobiliario según el tipo de ambiente
+            if (aula.nombre == "Biblioteca")
+            {
+                foreach (float dx in new[] { -3.5f, 0f, 3.5f })
+                    Estante(ga, new Vector3(aula.x + dx, aula.y, aula.z - 2.4f));
+                Escritorio(ga, new Vector3(aula.x - 1.6f, aula.y, aula.z + 1.4f));
+                Escritorio(ga, new Vector3(aula.x + 1.6f, aula.y, aula.z + 1.4f));
+            }
+            else if (aula.nombre == "Laboratorio")
+            {
+                foreach (float dx in new[] { -2.4f, 2.4f })
+                {
+                    Caja("Mesa Laboratorio", new Vector3(aula.x + dx, aula.y + 0.9f, aula.z),
+                        new Vector3(2.6f, 0.08f, 1.1f), matMesaLab, ga);
+                    Caja("Base Mesa", new Vector3(aula.x + dx, aula.y + 0.44f, aula.z),
+                        new Vector3(2.2f, 0.88f, 0.9f), matMetal, ga);
+                    foreach (float lado in new[] { -0.9f, 0.9f })
+                        Taburete(ga, new Vector3(aula.x + dx + lado, aula.y, aula.z + 1f));
+                }
+            }
+            else
+            {
+                // Aulas y oficinas: mesa del profesor + carpetas 2x2
+                MesaProfesor(ga, new Vector3(aula.x + 2.4f, aula.y, aula.z + haciaAula * -1.9f + (aula.z < 0f ? -0.4f : 0.4f)));
+                foreach (float dx in new[] { -1.6f, 1.6f })
+                    foreach (float dz in new[] { -1.4f, 1.2f })
+                        Escritorio(ga, new Vector3(aula.x + dx, aula.y, aula.z + dz));
+            }
         }
+
+        // Casilleros y maceteros en el pasillo del piso 1
+        Casilleros(g, new Vector3(-6.5f, 0f, 1.25f), 180f, 6);
+        Casilleros(g, new Vector3(4f, 0f, -1.25f), 0f, 5);
+        Maceta(g, new Vector3(-13.3f, 0f, 1.1f));
+        Maceta(g, new Vector3(-13.3f, 0f, -1.1f));
+        Maceta(g, new Vector3(13.3f, PisoDos, -1.1f));
+        Maceta(g, new Vector3(-13.3f, PisoDos, -1.1f));
     }
 
+    /// <summary>Carpeta escolar: tablero con 4 patas + silla con respaldar.</summary>
     private static void Escritorio(Transform padre, Vector3 pos)
     {
         var g = Grupo($"Carpeta ({pos.x:F0},{pos.z:F0})", padre);
         Caja("Tablero", pos + new Vector3(0f, 0.74f, 0f), new Vector3(1.1f, 0.05f, 0.6f), matMadera, g);
-        Caja("Pata Izq", pos + new Vector3(-0.5f, 0.36f, 0f), new Vector3(0.05f, 0.72f, 0.55f), matMetal, g);
-        Caja("Pata Der", pos + new Vector3(0.5f, 0.36f, 0f), new Vector3(0.05f, 0.72f, 0.55f), matMetal, g);
-        Caja("Silla", pos + new Vector3(0f, 0.23f, 0.55f), new Vector3(0.45f, 0.46f, 0.45f), matMadera, g);
+        foreach (float dx in new[] { -0.5f, 0.5f })
+            foreach (float dz in new[] { -0.25f, 0.25f })
+                Caja("Pata", pos + new Vector3(dx, 0.36f, dz), new Vector3(0.05f, 0.72f, 0.05f), matMetal, g);
+
+        // Silla con respaldar
+        Vector3 silla = pos + new Vector3(0f, 0f, 0.6f);
+        Caja("Asiento", silla + new Vector3(0f, 0.45f, 0f), new Vector3(0.42f, 0.05f, 0.42f), matMadera, g);
+        Caja("Respaldar", silla + new Vector3(0f, 0.72f, 0.2f), new Vector3(0.42f, 0.5f, 0.05f), matMadera, g);
+        foreach (float dx in new[] { -0.17f, 0.17f })
+            foreach (float dz in new[] { -0.17f, 0.17f })
+                Caja("Pata Silla", silla + new Vector3(dx, 0.22f, dz), new Vector3(0.04f, 0.44f, 0.04f), matMetal, g);
+    }
+
+    /// <summary>Mesa del profesor con silla.</summary>
+    private static void MesaProfesor(Transform padre, Vector3 pos)
+    {
+        var g = Grupo("Mesa Profesor", padre);
+        Caja("Tablero", pos + new Vector3(0f, 0.76f, 0f), new Vector3(1.6f, 0.06f, 0.75f), matMarco, g);
+        Caja("Frente", pos + new Vector3(0f, 0.45f, -0.3f), new Vector3(1.5f, 0.6f, 0.04f), matMadera, g);
+        foreach (float dx in new[] { -0.72f, 0.72f })
+            Caja("Lateral", pos + new Vector3(dx, 0.38f, 0f), new Vector3(0.05f, 0.76f, 0.65f), matMadera, g);
+        Caja("Silla Prof", pos + new Vector3(0f, 0.46f, 0.65f), new Vector3(0.45f, 0.06f, 0.45f), matMadera, g);
+        Caja("Respaldar Prof", pos + new Vector3(0f, 0.78f, 0.85f), new Vector3(0.45f, 0.55f, 0.06f), matMadera, g);
+    }
+
+    /// <summary>Estante de biblioteca con filas de libros de colores.</summary>
+    private static void Estante(Transform padre, Vector3 pos)
+    {
+        var g = Grupo($"Estante ({pos.x:F0})", padre);
+        foreach (float dx in new[] { -0.62f, 0.62f })
+            Caja("Lateral", pos + new Vector3(dx, 0.9f, 0f), new Vector3(0.05f, 1.8f, 0.35f), matMarco, g);
+        Caja("Fondo", pos + new Vector3(0f, 0.9f, -0.16f), new Vector3(1.3f, 1.8f, 0.03f), matMarco, g);
+
+        var mats = new[] { matLibroA, matLibroB, matLibroC };
+        for (int repisa = 0; repisa < 4; repisa++)
+        {
+            float y = 0.18f + repisa * 0.48f;
+            Caja("Repisa", pos + new Vector3(0f, y, 0f), new Vector3(1.24f, 0.04f, 0.33f), matMarco, g);
+            if (repisa < 3)
+                for (int libro = 0; libro < 9; libro++)
+                    Caja("Libro", pos + new Vector3(-0.52f + libro * 0.13f, y + 0.17f, 0f),
+                        new Vector3(0.09f, 0.28f, 0.22f), mats[(libro + repisa) % 3], g);
+        }
+    }
+
+    /// <summary>Taburete de laboratorio.</summary>
+    private static void Taburete(Transform padre, Vector3 pos)
+    {
+        var t = GameObject.CreatePrimitive(PrimitiveType.Cylinder);
+        t.name = "Taburete";
+        t.transform.SetParent(padre);
+        t.transform.position = pos + new Vector3(0f, 0.3f, 0f);
+        t.transform.localScale = new Vector3(0.35f, 0.3f, 0.35f);
+        t.GetComponent<Renderer>().sharedMaterial = matMadera;
+    }
+
+    /// <summary>Fila de casilleros escolares contra la pared del pasillo.</summary>
+    private static void Casilleros(Transform padre, Vector3 pos, float rotY, int cantidad)
+    {
+        var g = Grupo($"Casilleros ({pos.x:F0})", padre);
+        var rot = Quaternion.Euler(0f, rotY, 0f);
+        float ancho = cantidad * 0.4f;
+        var cuerpo = Caja("Cuerpo", pos + new Vector3(0f, 0.9f, 0f), new Vector3(ancho, 1.8f, 0.45f), matCasillero, g);
+        cuerpo.transform.rotation = rot;
+        for (int i = 0; i < cantidad; i++)
+        {
+            float dx = -ancho / 2f + 0.2f + i * 0.4f;
+            var puerta = Caja($"Puerta {i + 1}", pos + rot * new Vector3(dx, 0.9f, 0.235f),
+                new Vector3(0.34f, 1.68f, 0.02f), matMetal, g);
+            puerta.transform.rotation = rot;
+        }
+    }
+
+    /// <summary>Macetero con planta para dar vida a los pasillos.</summary>
+    private static void Maceta(Transform padre, Vector3 posPiso)
+    {
+        var g = Grupo($"Maceta ({posPiso.x:F0},{posPiso.z:F0})", padre);
+        var pote = GameObject.CreatePrimitive(PrimitiveType.Cylinder);
+        pote.name = "Pote";
+        pote.transform.SetParent(g);
+        pote.transform.position = posPiso + new Vector3(0f, 0.22f, 0f);
+        pote.transform.localScale = new Vector3(0.42f, 0.22f, 0.42f);
+        pote.GetComponent<Renderer>().sharedMaterial = matMacetero;
+
+        var planta = GameObject.CreatePrimitive(PrimitiveType.Sphere);
+        planta.name = "Planta";
+        planta.transform.SetParent(g);
+        planta.transform.position = posPiso + new Vector3(0f, 0.75f, 0f);
+        planta.transform.localScale = new Vector3(0.65f, 0.75f, 0.65f);
+        planta.GetComponent<Renderer>().sharedMaterial = matFolaje;
+        Object.DestroyImmediate(planta.GetComponent<Collider>());
     }
 
     // ------------------------------------------------------------------
@@ -457,12 +757,16 @@ public static class ConstructorEscuela
 
         var matParticulas = AssetDatabase.LoadAssetAtPath<Material>(RutaMatParticulas);
 
+        // Incendio prolongado: llamas altas y persistentes + columna de humo densa.
         Particulas(go.transform, "Fuego", pos, matParticulas,
             new Color(1f, 0.55f, 0.1f, 0.9f), new Color(1f, 0.15f, 0.05f, 0.8f),
-            velocidad: 1.8f, tam: 0.55f, vida: 0.9f, tasa: 45f, radioCono: 0.5f);
-        Particulas(go.transform, "Humo", pos + Vector3.up * 0.8f, matParticulas,
-            new Color(0.25f, 0.25f, 0.25f, 0.5f), new Color(0.1f, 0.1f, 0.1f, 0.35f),
-            velocidad: 1f, tam: 1.1f, vida: 2.4f, tasa: 18f, radioCono: 0.7f);
+            velocidad: 2.4f, tam: 0.7f, vida: 1.7f, tasa: 60f, radioCono: 0.7f);
+        Particulas(go.transform, "Brasas", pos, matParticulas,
+            new Color(1f, 0.8f, 0.2f, 1f), new Color(1f, 0.4f, 0.05f, 0.9f),
+            velocidad: 3.5f, tam: 0.12f, vida: 1.2f, tasa: 25f, radioCono: 0.4f);
+        Particulas(go.transform, "Humo", pos + Vector3.up * 1f, matParticulas,
+            new Color(0.22f, 0.22f, 0.22f, 0.55f), new Color(0.08f, 0.08f, 0.08f, 0.4f),
+            velocidad: 1.3f, tam: 1.5f, vida: 5f, tasa: 26f, radioCono: 0.9f);
 
         var luzGo = new GameObject("Luz Fuego");
         luzGo.transform.SetParent(go.transform);
@@ -518,12 +822,15 @@ public static class ConstructorEscuela
     {
         var g = Grupo("Puntos de Decision", padre);
         Decision(g, "bajar por la escalera de emergencia", true, new Vector3(12f, PisoDos, 4.5f), 1.6f);
+        Decision(g, "bajar por la rampa de evacuación accesible", true, new Vector3(14.85f, PisoDos, 5.2f), 1.3f);
         Decision(g, "avanzar por el pasillo hacia la escalera", true, new Vector3(4f, PisoDos, 0f), 1.8f);
         Decision(g, "acercarte al ascensor durante el incendio", false, new Vector3(5.5f, PisoDos, 5.4f), 1.3f);
         Decision(g, "ir hacia el humo del pasillo oeste", false, new Vector3(-11.5f, PisoDos, 0f), 1.5f);
         Decision(g, "dirigirte a la salida principal por el pasillo oeste", true, new Vector3(-6f, 0f, 0f), 1.8f);
         Decision(g, "acercarte al fuego del pasillo este", false, new Vector3(10.5f, 0f, 0f), 1.5f);
         Decision(g, "salir por la puerta principal", true, new Vector3(-14.5f, 0f, 0f), 1.6f);
+        Decision(g, "salir por la puerta de emergencia del este", true, new Vector3(14.8f, 0f, 4.85f), 1.5f);
+        Decision(g, "salir por la puerta de emergencia sur", true, new Vector3(-12.5f, 0f, -8.8f), 1.4f);
     }
 
     private static void Decision(Transform padre, string descripcion, bool correcta, Vector3 pos, float radio)
@@ -561,7 +868,12 @@ public static class ConstructorEscuela
         Area(g, prefabArea, "Area Aula 103", new Vector3(-9f, 0f, 4.85f), 9.6f, 6.2f);
         Area(g, prefabArea, "Area Direccion", new Vector3(0f, 0f, 4.85f), 7.6f, 6.2f);
         Area(g, prefabArea, "Area Hall Escalera P1", new Vector3(6.5f, 0f, 4.85f), 4.6f, 6.2f);
+        // Corredor sur de la escalera y acceso a la puerta de emergencia este
+        // (rodean la rampa de la escalera, que no se puede atravesar por debajo).
+        Area(g, prefabArea, "Area Hall Sur Escalera", new Vector3(11f, 0f, 2.2f), 6f, 1.2f);
+        Area(g, prefabArea, "Area Puerta Este", new Vector3(13.45f, 0f, 4.85f), 0.9f, 4f);
         Area(g, prefabArea, "Area Patio", new Vector3(-18.5f, 0f, 0f), 9f, 12f);
+        Area(g, prefabArea, "Area Patio Este", new Vector3(17.8f, 0f, 4.85f), 7.5f, 8f);
 
         // ---- Piso 2 ----
         Area(g, prefabArea, "Area Pasillo P2", new Vector3(0f, PisoDos, 0f), 27.6f, 3f);
@@ -573,6 +885,14 @@ public static class ConstructorEscuela
         Area(g, prefabArea, "Area Hall Escalera P2", new Vector3(6f, PisoDos, 4.85f), 3.6f, 6.2f);
         Area(g, prefabArea, "Area Descanso Escalera", new Vector3(13.45f, PisoDos, 4.5f), 1f, 3.9f);
 
+        // ---- Rampa accesible en la fachada este (tramos inclinados ~7.4°) ----
+        float angRampa = Mathf.Atan2(1.7f, 13f) * Mathf.Rad2Deg;
+        Area(g, prefabArea, "Area Plataforma Rampa", new Vector3(14.85f, PisoDos, 5.2f), 1.4f, 1.5f);
+        Area(g, prefabArea, "Area Rampa Tramo 1", new Vector3(14.85f, 2.55f, -2.1f), 1.4f, 13f, new Vector3(-angRampa, 0f, 0f));
+        Area(g, prefabArea, "Area Descanso Rampa", new Vector3(15.6f, 1.7f, -9.4f), 3f, 1.5f);
+        Area(g, prefabArea, "Area Rampa Tramo 2", new Vector3(16.4f, 0.85f, -2.1f), 1.4f, 13f, new Vector3(angRampa, 0f, 0f));
+        Area(g, prefabArea, "Area Camino Sur", new Vector3(-14f, 0f, -9f), 9f, 6f);
+
         // ---- Anclas sobre la rampa de la escalera ----
         if (prefabAncla != null)
         {
@@ -582,15 +902,17 @@ public static class ConstructorEscuela
         }
     }
 
-    private static void Area(Transform padre, GameObject prefab, string nombre, Vector3 centro, float sx, float sz)
+    private static void Area(Transform padre, GameObject prefab, string nombre, Vector3 centro, float sx, float sz, Vector3 euler = default)
     {
         var go = (GameObject)PrefabUtility.InstantiatePrefab(prefab);
         go.name = nombre;
         go.transform.SetParent(padre);
-        go.transform.position = centro + Vector3.up * 0.005f;
         // El prefab tiene un cubo hijo con escala (10, 0.25, 5): se compensa
         // para que la placa final mida exactamente sx × sz y 2 cm de grosor.
         go.transform.localScale = new Vector3(sx / 10f, 0.08f, sz / 5f);
+        go.transform.rotation = Quaternion.Euler(euler);
+        // Se desplaza a lo largo de la normal de la superficie (inclinada o no).
+        go.transform.position = centro + go.transform.up * 0.005f;
     }
 
     private static void Ancla(Transform padre, GameObject prefab, string nombre, Vector3 pos, float rotY)
