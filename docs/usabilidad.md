@@ -3,9 +3,9 @@
 ## Metodología
 
 - **Método:** Think Aloud Protocol + SUS
-- **Participantes:** N usuarios (completar)
-- **Fecha de prueba:** (completar)
-- **Versión de la app evaluada:** (completar)
+- **Participantes:** Castro Salazar, Camacho Quico
+- **Fecha de prueba:** 14/07
+- **Versión de la app evaluada:** 1.1
 
 ## Resultados SUS
 

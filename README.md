@@ -22,10 +22,10 @@ Simulador VR de evacuación de emergencias con accesibilidad para personas con d
 
 | Nombre | Código | Rol |
 |--------|--------|-----|
-| | | Líder del proyecto |
-| | | Desarrollador AR/VR |
-| | | Diseñador UX/3D |
-| | | QA / Documentación |
+|Castro Salazar Mauro | 0009-0003-4963-8697| Líder del proyecto |
+|Camacho QuICO Piero Alonso | 0009-0003-6332-853X| Desarrollador AR/VR |
+|Castro Salazar Mauro | 0009-0003-4963-8697 | Diseñador UX/3D |
+|Camacho QuICO Piero Alonso | 0009-0003-6332-853X | QA / Documentación |
 
 ---
 
@@ -104,7 +104,7 @@ rva-g01-evacuation-trainer/
 
 > 📹 Agregar link al video demo aquí (YouTube/Drive)
 
----
+https://www.youtube.com/@no-vn5um
 
 ## Licencia
 

@@ -1,0 +1,1309 @@
+ .gitignore                                         |   218 [32m+[m
+ Assets/C#.meta                                     |     8 [31m-[m
+ Assets/C#/PlayerMovement.cs                        |    49 [31m-[m
+ Assets/C#/PlayerMovement.cs.meta                   |    11 [31m-[m
+ Assets/C#/ZonaSegura.cs                            |    16 [31m-[m
+ Assets/C#/ZonaSegura.cs.meta                       |    11 [31m-[m
+ Assets/Colores.meta                                |     8 [31m-[m
+ Assets/Colores/New Material.mat                    |    84 [31m-[m
+ Assets/Colores/New Material.mat.meta               |     8 [31m-[m
+ Assets/Colores/PAREDES.mat                         |    84 [31m-[m
+ Assets/Colores/PAREDES.mat.meta                    |     8 [31m-[m
+ Assets/Colores/PisoColor 1.mat                     |    84 [31m-[m
+ Assets/Colores/PisoColor 1.mat.meta                |     8 [31m-[m
+ Assets/Colores/PisoColor.mat                       |    83 [31m-[m
+ Assets/Colores/PisoColor.mat.meta                  |     8 [31m-[m
+ Assets/INCENDIO_[cut_4sec].mp3                     |   Bin [31m177600[m -> [32m0[m bytes
+ Assets/INCENDIO_[cut_4sec].mp3.meta                |    23 [31m-[m
+ Assets/InputSystem_Actions.inputactions            |  1057 [31m-[m
+ Assets/InputSystem_Actions.inputactions.meta       |    14 [31m-[m
+ Assets/LoafbrrAssets.meta                          |     8 [31m-[m
+ Assets/LoafbrrAssets/Interiors_A.meta              |     8 [31m-[m
+ .../Interiors_A/Interiors_A_blend.zip              |   Bin [31m136848915[m -> [32m0[m bytes
+ .../Interiors_A/Interiors_A_blend.zip.meta         |    14 [31m-[m
+ Assets/LoafbrrAssets/Interiors_A/README.txt        |    15 [31m-[m
+ Assets/LoafbrrAssets/Interiors_A/README.txt.meta   |    14 [31m-[m
+ Assets/LoafbrrAssets/Interiors_A/Scene.meta        |     8 [31m-[m
+ .../LoafbrrAssets/Interiors_A/Scene/DemoScene.meta |     8 [31m-[m
+ .../Interiors_A/Scene/DemoScene.unity              |   808 [31m-[m
+ .../Interiors_A/Scene/DemoScene.unity.meta         |    14 [31m-[m
+ .../Scene/DemoScene/Global Volume Profile.asset    |    63 [31m-[m
+ .../DemoScene/Global Volume Profile.asset.meta     |    15 [31m-[m
+ .../Interiors_A/Scene/DemoScene/LightingData.asset |   Bin [31m18752[m -> [32m0[m bytes
+ .../Scene/DemoScene/LightingData.asset.meta        |    15 [31m-[m
+ .../Scene/DemoScene/Lightmap-0_comp_dir.png        |   Bin [31m833696[m -> [32m0[m bytes
+ .../Scene/DemoScene/Lightmap-0_comp_dir.png.meta   |   121 [31m-[m
+ .../Scene/DemoScene/Lightmap-0_comp_light.exr      |   Bin [31m2642057[m -> [32m0[m bytes
+ .../Scene/DemoScene/Lightmap-0_comp_light.exr.meta |   121 [31m-[m
+ .../Scene/DemoScene/New Lighting Settings.lighting |    66 [31m-[m
+ .../DemoScene/New Lighting Settings.lighting.meta  |    15 [31m-[m
+ .../Scene/DemoScene/ReflectionProbe-0.exr          |   Bin [31m308773[m -> [32m0[m bytes
+ .../Scene/DemoScene/ReflectionProbe-0.exr.meta     |   121 [31m-[m
+ .../Scene/DemoScene/ReflectionProbe-1.exr          |   Bin [31m291872[m -> [32m0[m bytes
+ .../Scene/DemoScene/ReflectionProbe-1.exr.meta     |   121 [31m-[m
+ .../Scene/DemoScene/ReflectionProbe-2.exr          |   Bin [31m318223[m -> [32m0[m bytes
+ .../Scene/DemoScene/ReflectionProbe-2.exr.meta     |   121 [31m-[m
+ .../Scene/DemoScene/ReflectionProbe-3.exr          |   Bin [31m71720[m -> [32m0[m bytes
+ .../Scene/DemoScene/ReflectionProbe-3.exr.meta     |   121 [31m-[m
+ .../Interiors_A/Scene/Demo_Grp.prefab              |   293 [31m-[m
+ .../Interiors_A/Scene/Demo_Grp.prefab.meta         |    14 [31m-[m
+ .../LoafbrrAssets/Interiors_A/Scene/MatTest.unity  | 18049 [31m-------[m
+ .../Interiors_A/Scene/MatTest.unity.meta           |    14 [31m-[m
+ Assets/LoafbrrAssets/Interiors_A/fbx.meta          |     8 [31m-[m
+ .../LoafbrrAssets/Interiors_A/fbx/Interiors_A.fbx  |   Bin [31m2423596[m -> [32m0[m bytes
+ .../Interiors_A/fbx/Interiors_A.fbx.meta           |   156 [31m-[m
+ Assets/LoafbrrAssets/Interiors_A/materials.meta    |     8 [31m-[m
+ .../Interiors_A/materials/Door_A_Mat.mat           |   101 [31m-[m
+ .../Interiors_A/materials/Door_A_Mat.mat.meta      |    15 [31m-[m
+ .../Interiors_A/materials/Door_B_Mat.mat           |   101 [31m-[m
+ .../Interiors_A/materials/Door_B_Mat.mat.meta      |    15 [31m-[m
+ .../Interiors_A/materials/Door_C_Mat.mat           |   101 [31m-[m
+ .../Interiors_A/materials/Door_C_Mat.mat.meta      |    15 [31m-[m
+ .../LoafbrrAssets/Interiors_A/materials/Glass.mat  |   104 [31m-[m
+ .../Interiors_A/materials/Glass.mat.meta           |    15 [31m-[m
+ .../Interiors_A/materials/MiscTrim_Mat.mat         |   101 [31m-[m
+ .../Interiors_A/materials/MiscTrim_Mat.mat.meta    |    15 [31m-[m
+ .../Interiors_A/materials/ORM_Shader 1.shadergraph |  4788 [31m--[m
+ .../materials/ORM_Shader 1.shadergraph.meta        |    17 [31m-[m
+ .../Interiors_A/materials/Surface_Ceiling_A 1.mat  |   101 [31m-[m
+ .../materials/Surface_Ceiling_A 1.mat.meta         |    15 [31m-[m
+ .../Interiors_A/materials/Surface_Ceiling_A.mat    |   101 [31m-[m
+ .../materials/Surface_Ceiling_A.mat.meta           |    15 [31m-[m
+ .../Interiors_A/materials/Surface_Ceiling_B 1.mat  |   101 [31m-[m
+ .../materials/Surface_Ceiling_B 1.mat.meta         |    15 [31m-[m
+ .../Interiors_A/materials/Surface_Ceiling_B.mat    |   101 [31m-[m
+ .../materials/Surface_Ceiling_B.mat.meta           |    15 [31m-[m
+ .../Interiors_A/materials/Surface_Floor_A 1.mat    |   101 [31m-[m
+ .../materials/Surface_Floor_A 1.mat.meta           |    15 [31m-[m
+ .../Interiors_A/materials/Surface_Floor_A.mat      |   101 [31m-[m
+ .../Interiors_A/materials/Surface_Floor_A.mat.meta |    15 [31m-[m
+ .../Interiors_A/materials/Surface_Floor_B 1.mat    |   101 [31m-[m
+ .../materials/Surface_Floor_B 1.mat.meta           |    15 [31m-[m
+ .../Interiors_A/materials/Surface_Floor_B.mat      |   101 [31m-[m
+ .../Interiors_A/materials/Surface_Floor_B.mat.meta |    15 [31m-[m
+ .../Interiors_A/materials/Surface_Wall_A 1.mat     |   101 [31m-[m
+ .../materials/Surface_Wall_A 1.mat.meta            |    15 [31m-[m
+ .../Interiors_A/materials/Surface_Wall_A.mat       |   101 [31m-[m
+ .../Interiors_A/materials/Surface_Wall_A.mat.meta  |    15 [31m-[m
+ .../LoafbrrAssets/Interiors_A/materials/sky 1.mat  |   146 [31m-[m
+ .../Interiors_A/materials/sky 1.mat.meta           |    15 [31m-[m
+ .../LoafbrrAssets/Interiors_A/materials/sky 2.mat  |   146 [31m-[m
+ .../Interiors_A/materials/sky 2.mat.meta           |    15 [31m-[m
+ Assets/LoafbrrAssets/Interiors_A/prefabs.meta      |     8 [31m-[m
+ .../LoafbrrAssets/Interiors_A/prefabs/Decal.meta   |     8 [31m-[m
+ .../prefabs/Decal/Decal_Ceiling_A_Light.prefab     |    85 [31m-[m
+ .../Decal/Decal_Ceiling_A_Light.prefab.meta        |    14 [31m-[m
+ .../prefabs/Decal/Decal_Ceiling_B_Light.prefab     |    85 [31m-[m
+ .../Decal/Decal_Ceiling_B_Light.prefab.meta        |    14 [31m-[m
+ .../prefabs/Decal/Decal_Grate_1m.prefab            |    85 [31m-[m
+ .../prefabs/Decal/Decal_Grate_1m.prefab.meta       |    14 [31m-[m
+ .../prefabs/Decal/Decal_Grate_2m.prefab            |    85 [31m-[m
+ .../prefabs/Decal/Decal_Grate_2m.prefab.meta       |    14 [31m-[m
+ .../prefabs/Decal/Decal_Grate_3m.prefab            |    85 [31m-[m
+ .../prefabs/Decal/Decal_Grate_3m.prefab.meta       |    14 [31m-[m
+ .../prefabs/Decal/Decal_Grate_corner_A.prefab      |    85 [31m-[m
+ .../prefabs/Decal/Decal_Grate_corner_A.prefab.meta |    14 [31m-[m
+ .../prefabs/Decal/Decal_Grate_corner_B.prefab      |    85 [31m-[m
+ .../prefabs/Decal/Decal_Grate_corner_B.prefab.meta |    14 [31m-[m
+ .../prefabs/Decal/Decal_Grate_corner_C.prefab      |    85 [31m-[m
+ .../prefabs/Decal/Decal_Grate_corner_C.prefab.meta |    14 [31m-[m
+ .../Decal/Decal_Grate_corner_C_Flipped.prefab      |    85 [31m-[m
+ .../Decal/Decal_Grate_corner_C_Flipped.prefab.meta |    14 [31m-[m
+ .../prefabs/Decal/Decal_Tape_Caution_1m.prefab     |    85 [31m-[m
+ .../Decal/Decal_Tape_Caution_1m.prefab.meta        |    14 [31m-[m
+ .../prefabs/Decal/Decal_Tape_Caution_2m.prefab     |    85 [31m-[m
+ .../Decal/Decal_Tape_Caution_2m.prefab.meta        |    14 [31m-[m
+ .../prefabs/Decal/Decal_Tape_Caution_3m.prefab     |    85 [31m-[m
+ .../Decal/Decal_Tape_Caution_3m.prefab.meta        |    14 [31m-[m
+ .../prefabs/Decal/Decal_Tape_Danger_1m.prefab      |    85 [31m-[m
+ .../prefabs/Decal/Decal_Tape_Danger_1m.prefab.meta |    14 [31m-[m
+ .../prefabs/Decal/Decal_Tape_Danger_2m.prefab      |    85 [31m-[m
+ .../prefabs/Decal/Decal_Tape_Danger_2m.prefab.meta |    14 [31m-[m
+ .../prefabs/Decal/Decal_Tape_Danger_3m.prefab      |    85 [31m-[m
+ .../prefabs/Decal/Decal_Tape_Danger_3m.prefab.meta |    14 [31m-[m
+ .../prefabs/Decal/Decal_Wall_Plugs.prefab          |    85 [31m-[m
+ .../prefabs/Decal/Decal_Wall_Plugs.prefab.meta     |    14 [31m-[m
+ .../prefabs/Decal/Decal_Wall_Switch.prefab         |    85 [31m-[m
+ .../prefabs/Decal/Decal_Wall_Switch.prefab.meta    |    14 [31m-[m
+ .../prefabs/Decal/Floor_Separator_1m.prefab        |    85 [31m-[m
+ .../prefabs/Decal/Floor_Separator_1m.prefab.meta   |    14 [31m-[m
+ .../prefabs/Decal/Floor_Separator_2m.prefab        |    85 [31m-[m
+ .../prefabs/Decal/Floor_Separator_2m.prefab.meta   |    14 [31m-[m
+ .../prefabs/Decal/Floor_Separator_3m.prefab        |    85 [31m-[m
+ .../prefabs/Decal/Floor_Separator_3m.prefab.meta   |    14 [31m-[m
+ .../prefabs/Decal/Floor_Separator_corner.prefab    |    85 [31m-[m
+ .../Decal/Floor_Separator_corner.prefab.meta       |    14 [31m-[m
+ Assets/LoafbrrAssets/Interiors_A/prefabs/Door.meta |     8 [31m-[m
+ .../Interiors_A/prefabs/Door/Door_A_Grp.prefab     |   331 [31m-[m
+ .../prefabs/Door/Door_A_Grp.prefab.meta            |    14 [31m-[m
+ .../Interiors_A/prefabs/Door/Door_B_Grp.prefab     |   331 [31m-[m
+ .../prefabs/Door/Door_B_Grp.prefab.meta            |    14 [31m-[m
+ .../Interiors_A/prefabs/Door/Door_C_Grp.prefab     |   331 [31m-[m
+ .../prefabs/Door/Door_C_Grp.prefab.meta            |    14 [31m-[m
+ .../Interiors_A/prefabs/Door/Door_D_Grp.prefab     |   332 [31m-[m
+ .../prefabs/Door/Door_D_Grp.prefab.meta            |    14 [31m-[m
+ .../Interiors_A/prefabs/Door/Door_E_Grp.prefab     |   332 [31m-[m
+ .../prefabs/Door/Door_E_Grp.prefab.meta            |    14 [31m-[m
+ .../Interiors_A/prefabs/Door/Door_F_Grp.prefab     |   332 [31m-[m
+ .../prefabs/Door/Door_F_Grp.prefab.meta            |    14 [31m-[m
+ .../Interiors_A/prefabs/Door/Door_G_Grp.prefab     |   249 [31m-[m
+ .../prefabs/Door/Door_G_Grp.prefab.meta            |    14 [31m-[m
+ .../Interiors_A/prefabs/Door/Door_H_Grp.prefab     |   248 [31m-[m
+ .../prefabs/Door/Door_H_Grp.prefab.meta            |    14 [31m-[m
+ .../Interiors_A/prefabs/Door/Door_I_Grp.prefab     |   248 [31m-[m
+ .../prefabs/Door/Door_I_Grp.prefab.meta            |    14 [31m-[m
+ .../LoafbrrAssets/Interiors_A/prefabs/Floor.meta   |     8 [31m-[m
+ .../prefabs/Floor/FloorCeiling_1x1.prefab          |   109 [31m-[m
+ .../prefabs/Floor/FloorCeiling_1x1.prefab.meta     |    14 [31m-[m
+ .../prefabs/Floor/FloorCeiling_1x2.prefab          |   109 [31m-[m
+ .../prefabs/Floor/FloorCeiling_1x2.prefab.meta     |    14 [31m-[m
+ .../prefabs/Floor/FloorCeiling_1x3.prefab          |   109 [31m-[m
+ .../prefabs/Floor/FloorCeiling_1x3.prefab.meta     |    14 [31m-[m
+ .../prefabs/Floor/FloorCeiling_2x1.prefab          |   109 [31m-[m
+ .../prefabs/Floor/FloorCeiling_2x1.prefab.meta     |    14 [31m-[m
+ .../prefabs/Floor/FloorCeiling_2x2.prefab          |   109 [31m-[m
+ .../prefabs/Floor/FloorCeiling_2x2.prefab.meta     |    14 [31m-[m
+ .../prefabs/Floor/FloorCeiling_2x3.prefab          |   109 [31m-[m
+ .../prefabs/Floor/FloorCeiling_2x3.prefab.meta     |    14 [31m-[m
+ .../prefabs/Floor/FloorCeiling_3x1.prefab          |   109 [31m-[m
+ .../prefabs/Floor/FloorCeiling_3x1.prefab.meta     |    14 [31m-[m
+ .../prefabs/Floor/FloorCeiling_3x2.prefab          |   109 [31m-[m
+ .../prefabs/Floor/FloorCeiling_3x2.prefab.meta     |    14 [31m-[m
+ .../prefabs/Floor/FloorCeiling_3x3.prefab          |   109 [31m-[m
+ .../prefabs/Floor/FloorCeiling_3x3.prefab.meta     |    14 [31m-[m
+ .../Interiors_A/prefabs/Floor/Floor_1x1.prefab     |   109 [31m-[m
+ .../prefabs/Floor/Floor_1x1.prefab.meta            |    14 [31m-[m
+ .../prefabs/Floor/Floor_1x1_1Side.prefab           |   108 [31m-[m
+ .../prefabs/Floor/Floor_1x1_1Side.prefab.meta      |    14 [31m-[m
+ .../Interiors_A/prefabs/Floor/Floor_1x2.prefab     |   109 [31m-[m
+ .../prefabs/Floor/Floor_1x2.prefab.meta            |    14 [31m-[m
+ .../prefabs/Floor/Floor_1x2_1Side.prefab           |   108 [31m-[m
+ .../prefabs/Floor/Floor_1x2_1Side.prefab.meta      |    14 [31m-[m
+ .../Interiors_A/prefabs/Floor/Floor_1x3.prefab     |   109 [31m-[m
+ .../prefabs/Floor/Floor_1x3.prefab.meta            |    14 [31m-[m
+ .../prefabs/Floor/Floor_1x3_1Side.prefab           |   108 [31m-[m
+ .../prefabs/Floor/Floor_1x3_1Side.prefab.meta      |    14 [31m-[m
+ .../Interiors_A/prefabs/Floor/Floor_2x1.prefab     |   109 [31m-[m
+ .../prefabs/Floor/Floor_2x1.prefab.meta            |    14 [31m-[m
+ .../prefabs/Floor/Floor_2x1_1Side.prefab           |   108 [31m-[m
+ .../prefabs/Floor/Floor_2x1_1Side.prefab.meta      |    14 [31m-[m
+ .../Interiors_A/prefabs/Floor/Floor_2x2.prefab     |   109 [31m-[m
+ .../prefabs/Floor/Floor_2x2.prefab.meta            |    14 [31m-[m
+ .../prefabs/Floor/Floor_2x2_1Side.prefab           |   108 [31m-[m
+ .../prefabs/Floor/Floor_2x2_1Side.prefab.meta      |    14 [31m-[m
+ .../Interiors_A/prefabs/Floor/Floor_2x3.prefab     |   109 [31m-[m
+ .../prefabs/Floor/Floor_2x3.prefab.meta            |    14 [31m-[m
+ .../prefabs/Floor/Floor_2x3_1Side.prefab           |   108 [31m-[m
+ .../prefabs/Floor/Floor_2x3_1Side.prefab.meta      |    14 [31m-[m
+ .../Interiors_A/prefabs/Floor/Floor_3x1.prefab     |   109 [31m-[m
+ .../prefabs/Floor/Floor_3x1.prefab.meta            |    14 [31m-[m
+ .../prefabs/Floor/Floor_3x1_1Side.prefab           |   108 [31m-[m
+ .../prefabs/Floor/Floor_3x1_1Side.prefab.meta      |    14 [31m-[m
+ .../Interiors_A/prefabs/Floor/Floor_3x2.prefab     |   109 [31m-[m
+ .../prefabs/Floor/Floor_3x2.prefab.meta            |    14 [31m-[m
+ .../prefabs/Floor/Floor_3x2_1Side.prefab           |   108 [31m-[m
+ .../prefabs/Floor/Floor_3x2_1Side.prefab.meta      |    14 [31m-[m
+ .../Interiors_A/prefabs/Floor/Floor_3x3.prefab     |   109 [31m-[m
+ .../prefabs/Floor/Floor_3x3.prefab.meta            |    14 [31m-[m
+ .../prefabs/Floor/Floor_3x3_1Side.prefab           |   108 [31m-[m
+ .../prefabs/Floor/Floor_3x3_1Side.prefab.meta      |    14 [31m-[m
+ .../Interiors_A/prefabs/Floor/Floor_Edge_1m.prefab |   109 [31m-[m
+ .../prefabs/Floor/Floor_Edge_1m.prefab.meta        |    14 [31m-[m
+ .../Interiors_A/prefabs/Floor/Floor_Edge_2m.prefab |   109 [31m-[m
+ .../prefabs/Floor/Floor_Edge_2m.prefab.meta        |    14 [31m-[m
+ .../Interiors_A/prefabs/Floor/Floor_Edge_3m.prefab |   109 [31m-[m
+ .../prefabs/Floor/Floor_Edge_3m.prefab.meta        |    14 [31m-[m
+ .../prefabs/Floor/Floor_Edge_Corner_A.prefab       |   109 [31m-[m
+ .../prefabs/Floor/Floor_Edge_Corner_A.prefab.meta  |    14 [31m-[m
+ .../prefabs/Floor/Floor_Edge_Corner_B.prefab       |   109 [31m-[m
+ .../prefabs/Floor/Floor_Edge_Corner_B.prefab.meta  |    14 [31m-[m
+ .../Interiors_A/prefabs/StairParts.meta            |     8 [31m-[m
+ .../prefabs/StairParts/Stair_Rail_1m.prefab        |   108 [31m-[m
+ .../prefabs/StairParts/Stair_Rail_1m.prefab.meta   |    14 [31m-[m
+ .../prefabs/StairParts/Stair_Rail_2m.prefab        |   108 [31m-[m
+ .../prefabs/StairParts/Stair_Rail_2m.prefab.meta   |    14 [31m-[m
+ .../prefabs/StairParts/Stair_Rail_3m.prefab        |   108 [31m-[m
+ .../prefabs/StairParts/Stair_Rail_3m.prefab.meta   |    14 [31m-[m
+ .../prefabs/StairParts/Stair_Rail_A.prefab         |   108 [31m-[m
+ .../prefabs/StairParts/Stair_Rail_A.prefab.meta    |    14 [31m-[m
+ .../prefabs/StairParts/Stair_Rail_A_Flipped.prefab |   108 [31m-[m
+ .../StairParts/Stair_Rail_A_Flipped.prefab.meta    |    14 [31m-[m
+ .../prefabs/StairParts/Stair_Rail_B.prefab         |   108 [31m-[m
+ .../prefabs/StairParts/Stair_Rail_B.prefab.meta    |    14 [31m-[m
+ .../prefabs/StairParts/Stair_Rail_B_Flipped.prefab |   108 [31m-[m
+ .../StairParts/Stair_Rail_B_Flipped.prefab.meta    |    14 [31m-[m
+ .../prefabs/StairParts/Stair_Rail_C.prefab         |   108 [31m-[m
+ .../prefabs/StairParts/Stair_Rail_C.prefab.meta    |    14 [31m-[m
+ .../prefabs/StairParts/Stair_Rail_C_flipped.prefab |   108 [31m-[m
+ .../StairParts/Stair_Rail_C_flipped.prefab.meta    |    14 [31m-[m
+ .../prefabs/StairParts/Stair_Rail_Post_A.prefab    |   108 [31m-[m
+ .../StairParts/Stair_Rail_Post_A.prefab.meta       |    14 [31m-[m
+ .../prefabs/StairParts/Stair_Rail_Post_b.prefab    |   108 [31m-[m
+ .../StairParts/Stair_Rail_Post_b.prefab.meta       |    14 [31m-[m
+ .../prefabs/StairParts/Stair_Wall_1m_A.prefab      |   108 [31m-[m
+ .../prefabs/StairParts/Stair_Wall_1m_A.prefab.meta |    14 [31m-[m
+ .../StairParts/Stair_Wall_1m_A_Flipped.prefab      |   108 [31m-[m
+ .../StairParts/Stair_Wall_1m_A_Flipped.prefab.meta |    14 [31m-[m
+ .../prefabs/StairParts/Stair_Wall_1m_B.prefab      |   108 [31m-[m
+ .../prefabs/StairParts/Stair_Wall_1m_B.prefab.meta |    14 [31m-[m
+ .../StairParts/Stair_Wall_1m_B_Flipped.prefab      |   108 [31m-[m
+ .../StairParts/Stair_Wall_1m_B_Flipped.prefab.meta |    14 [31m-[m
+ .../prefabs/StairParts/Stair_Wall_2m_A.prefab      |   108 [31m-[m
+ .../prefabs/StairParts/Stair_Wall_2m_A.prefab.meta |    14 [31m-[m
+ .../StairParts/Stair_Wall_2m_A_Flipped.prefab      |   108 [31m-[m
+ .../StairParts/Stair_Wall_2m_A_Flipped.prefab.meta |    14 [31m-[m
+ .../prefabs/StairParts/Stair_Wall_2m_B.prefab      |   108 [31m-[m
+ .../prefabs/StairParts/Stair_Wall_2m_B.prefab.meta |    14 [31m-[m
+ .../StairParts/Stair_Wall_2m_B_Flipped.prefab      |   108 [31m-[m
+ .../StairParts/Stair_Wall_2m_B_Flipped.prefab.meta |    14 [31m-[m
+ .../prefabs/StairParts/Stair_Wall_3m.prefab        |   108 [31m-[m
+ .../prefabs/StairParts/Stair_Wall_3m.prefab.meta   |    14 [31m-[m
+ .../StairParts/Stair_Wall_3m_Flipped.prefab        |   108 [31m-[m
+ .../StairParts/Stair_Wall_3m_Flipped.prefab.meta   |    14 [31m-[m
+ .../prefabs/StairParts/Stairs_A_1x1.prefab         |   110 [31m-[m
+ .../prefabs/StairParts/Stairs_A_1x1.prefab.meta    |    14 [31m-[m
+ .../prefabs/StairParts/Stairs_A_1x2.prefab         |   110 [31m-[m
+ .../prefabs/StairParts/Stairs_A_1x2.prefab.meta    |    14 [31m-[m
+ .../prefabs/StairParts/Stairs_A_1x3.prefab         |   110 [31m-[m
+ .../prefabs/StairParts/Stairs_A_1x3.prefab.meta    |    14 [31m-[m
+ .../prefabs/StairParts/Stairs_A_2x1.prefab         |   110 [31m-[m
+ .../prefabs/StairParts/Stairs_A_2x1.prefab.meta    |    14 [31m-[m
+ .../prefabs/StairParts/Stairs_A_2x2.prefab         |   110 [31m-[m
+ .../prefabs/StairParts/Stairs_A_2x2.prefab.meta    |    14 [31m-[m
+ .../prefabs/StairParts/Stairs_A_2x3.prefab         |   110 [31m-[m
+ .../prefabs/StairParts/Stairs_A_2x3.prefab.meta    |    14 [31m-[m
+ .../prefabs/StairParts/Stairs_A_3x1.prefab         |   110 [31m-[m
+ .../prefabs/StairParts/Stairs_A_3x1.prefab.meta    |    14 [31m-[m
+ .../prefabs/StairParts/Stairs_A_3x2.prefab         |   110 [31m-[m
+ .../prefabs/StairParts/Stairs_A_3x2.prefab.meta    |    14 [31m-[m
+ .../prefabs/StairParts/Stairs_A_3x3.prefab         |   110 [31m-[m
+ .../prefabs/StairParts/Stairs_A_3x3.prefab.meta    |    14 [31m-[m
+ .../prefabs/StairParts/Stairs_B_1x1.prefab         |   110 [31m-[m
+ .../prefabs/StairParts/Stairs_B_1x1.prefab.meta    |    14 [31m-[m
+ .../prefabs/StairParts/Stairs_B_1x2.prefab         |   110 [31m-[m
+ .../prefabs/StairParts/Stairs_B_1x2.prefab.meta    |    14 [31m-[m
+ .../prefabs/StairParts/Stairs_B_1x3.prefab         |   110 [31m-[m
+ .../prefabs/StairParts/Stairs_B_1x3.prefab.meta    |    14 [31m-[m
+ .../prefabs/StairParts/Stairs_B_2x1.prefab         |   110 [31m-[m
+ .../prefabs/StairParts/Stairs_B_2x1.prefab.meta    |    14 [31m-[m
+ .../prefabs/StairParts/Stairs_B_2x2.prefab         |   110 [31m-[m
+ .../prefabs/StairParts/Stairs_B_2x2.prefab.meta    |    14 [31m-[m
+ .../prefabs/StairParts/Stairs_B_2x3.prefab         |   110 [31m-[m
+ .../prefabs/StairParts/Stairs_B_2x3.prefab.meta    |    14 [31m-[m
+ .../prefabs/StairParts/Stairs_B_3x1.prefab         |   110 [31m-[m
+ .../prefabs/StairParts/Stairs_B_3x1.prefab.meta    |    14 [31m-[m
+ .../prefabs/StairParts/Stairs_B_3x2.prefab         |   110 [31m-[m
+ .../prefabs/StairParts/Stairs_B_3x2.prefab.meta    |    14 [31m-[m
+ .../prefabs/StairParts/Stairs_B_3x3.prefab         |   110 [31m-[m
+ .../prefabs/StairParts/Stairs_B_3x3.prefab.meta    |    14 [31m-[m
+ .../prefabs/StairParts/Stairs_Bottom_1m.prefab     |   109 [31m-[m
+ .../StairParts/Stairs_Bottom_1m.prefab.meta        |    14 [31m-[m
+ .../prefabs/StairParts/Stairs_Bottom_2m.prefab     |   109 [31m-[m
+ .../StairParts/Stairs_Bottom_2m.prefab.meta        |    14 [31m-[m
+ .../prefabs/StairParts/Stairs_Bottom_3m.prefab     |   109 [31m-[m
+ .../StairParts/Stairs_Bottom_3m.prefab.meta        |    14 [31m-[m
+ .../prefabs/StairParts/Wall_Stair_1m.prefab        |   108 [31m-[m
+ .../prefabs/StairParts/Wall_Stair_1m.prefab.meta   |    14 [31m-[m
+ .../StairParts/Wall_Stair_1m_Corner_A.prefab       |   108 [31m-[m
+ .../StairParts/Wall_Stair_1m_Corner_A.prefab.meta  |    14 [31m-[m
+ .../StairParts/Wall_Stair_1m_Corner_B.prefab       |   108 [31m-[m
+ .../StairParts/Wall_Stair_1m_Corner_B.prefab.meta  |    14 [31m-[m
+ .../StairParts/Wall_Stair_1m_Corner_C.prefab       |   108 [31m-[m
+ .../StairParts/Wall_Stair_1m_Corner_C.prefab.meta  |    14 [31m-[m
+ .../prefabs/StairParts/Wall_Stair_1m_Edge_A.prefab |   108 [31m-[m
+ .../StairParts/Wall_Stair_1m_Edge_A.prefab.meta    |    14 [31m-[m
+ .../StairParts/Wall_Stair_1m_Edge_A_Flipped.prefab |   108 [31m-[m
+ .../Wall_Stair_1m_Edge_A_Flipped.prefab.meta       |    14 [31m-[m
+ .../prefabs/StairParts/Wall_Stair_1m_Edge_B.prefab |   108 [31m-[m
+ .../StairParts/Wall_Stair_1m_Edge_B.prefab.meta    |    14 [31m-[m
+ .../StairParts/Wall_Stair_1m_Edge_B_Flipped.prefab |   108 [31m-[m
+ .../Wall_Stair_1m_Edge_B_Flipped.prefab.meta       |    14 [31m-[m
+ .../prefabs/StairParts/Wall_Stair_1m_Edge_C.prefab |   108 [31m-[m
+ .../StairParts/Wall_Stair_1m_Edge_C.prefab.meta    |    14 [31m-[m
+ .../StairParts/Wall_Stair_1m_Edge_C_Flipped.prefab |   108 [31m-[m
+ .../Wall_Stair_1m_Edge_C_Flipped.prefab.meta       |    14 [31m-[m
+ .../prefabs/StairParts/Wall_Stair_1m_Trim.prefab   |   108 [31m-[m
+ .../StairParts/Wall_Stair_1m_Trim.prefab.meta      |    14 [31m-[m
+ .../StairParts/Wall_Stair_1m_Trim_Flipped.prefab   |   108 [31m-[m
+ .../Wall_Stair_1m_Trim_Flipped.prefab.meta         |    14 [31m-[m
+ .../prefabs/StairParts/Wall_Stair_2m.prefab        |   108 [31m-[m
+ .../prefabs/StairParts/Wall_Stair_2m.prefab.meta   |    14 [31m-[m
+ .../StairParts/Wall_Stair_2m_Corner_A.prefab       |   108 [31m-[m
+ .../StairParts/Wall_Stair_2m_Corner_A.prefab.meta  |    14 [31m-[m
+ .../StairParts/Wall_Stair_2m_Corner_B.prefab       |   108 [31m-[m
+ .../StairParts/Wall_Stair_2m_Corner_B.prefab.meta  |    14 [31m-[m
+ .../StairParts/Wall_Stair_2m_Corner_C.prefab       |   108 [31m-[m
+ .../StairParts/Wall_Stair_2m_Corner_C.prefab.meta  |    14 [31m-[m
+ .../prefabs/StairParts/Wall_Stair_2m_Edge_A.prefab |   108 [31m-[m
+ .../StairParts/Wall_Stair_2m_Edge_A.prefab.meta    |    14 [31m-[m
+ .../StairParts/Wall_Stair_2m_Edge_A_Flipped.prefab |   108 [31m-[m
+ .../Wall_Stair_2m_Edge_A_Flipped.prefab.meta       |    14 [31m-[m
+ .../prefabs/StairParts/Wall_Stair_2m_Edge_B.prefab |   108 [31m-[m
+ .../StairParts/Wall_Stair_2m_Edge_B.prefab.meta    |    14 [31m-[m
+ .../StairParts/Wall_Stair_2m_Edge_B_Flipped.prefab |   108 [31m-[m
+ .../Wall_Stair_2m_Edge_B_Flipped.prefab.meta       |    14 [31m-[m
+ .../prefabs/StairParts/Wall_Stair_2m_Edge_C.prefab |   108 [31m-[m
+ .../StairParts/Wall_Stair_2m_Edge_C.prefab.meta    |    14 [31m-[m
+ .../StairParts/Wall_Stair_2m_Edge_C_Flipped.prefab |   108 [31m-[m
+ .../Wall_Stair_2m_Edge_C_Flipped.prefab.meta       |    14 [31m-[m
+ .../prefabs/StairParts/Wall_Stair_2m_Trim.prefab   |   108 [31m-[m
+ .../StairParts/Wall_Stair_2m_Trim.prefab.meta      |    14 [31m-[m
+ .../StairParts/Wall_Stair_2m_Trim_Flipped.prefab   |   108 [31m-[m
+ .../Wall_Stair_2m_Trim_Flipped.prefab.meta         |    14 [31m-[m
+ .../prefabs/StairParts/Wall_Stair_3m.prefab        |   108 [31m-[m
+ .../prefabs/StairParts/Wall_Stair_3m.prefab.meta   |    14 [31m-[m
+ .../StairParts/Wall_Stair_3m_Corner_A.prefab       |   108 [31m-[m
+ .../StairParts/Wall_Stair_3m_Corner_A.prefab.meta  |    14 [31m-[m
+ .../StairParts/Wall_Stair_3m_Corner_B.prefab       |   108 [31m-[m
+ .../StairParts/Wall_Stair_3m_Corner_B.prefab.meta  |    14 [31m-[m
+ .../prefabs/StairParts/Wall_Stair_3m_Edge_A.prefab |   108 [31m-[m
+ .../StairParts/Wall_Stair_3m_Edge_A.prefab.meta    |    14 [31m-[m
+ .../StairParts/Wall_Stair_3m_Edge_A_Flipped.prefab |   108 [31m-[m
+ .../Wall_Stair_3m_Edge_A_Flipped.prefab.meta       |    14 [31m-[m
+ .../prefabs/StairParts/Wall_Stair_3m_Edge_B.prefab |   108 [31m-[m
+ .../StairParts/Wall_Stair_3m_Edge_B.prefab.meta    |    14 [31m-[m
+ .../StairParts/Wall_Stair_3m_Edge_B_Flipped.prefab |   108 [31m-[m
+ .../Wall_Stair_3m_Edge_B_Flipped.prefab.meta       |    14 [31m-[m
+ .../prefabs/StairParts/Wall_Stair_3m_Edge_C.prefab |   108 [31m-[m
+ .../StairParts/Wall_Stair_3m_Edge_C.prefab.meta    |    14 [31m-[m
+ .../StairParts/Wall_Stair_3m_Edge_C_Flipped.prefab |   108 [31m-[m
+ .../Wall_Stair_3m_Edge_C_Flipped.prefab.meta       |    14 [31m-[m
+ .../prefabs/StairParts/Wall_Stair_3m_Trim.prefab   |   108 [31m-[m
+ .../StairParts/Wall_Stair_3m_Trim.prefab.meta      |    14 [31m-[m
+ .../StairParts/Wall_Stair_3m_Trim_Flipped.prefab   |   108 [31m-[m
+ .../Wall_Stair_3m_Trim_Flipped.prefab.meta         |    14 [31m-[m
+ .../prefabs/StairParts/Wall_Stair_Corner.prefab    |   108 [31m-[m
+ .../StairParts/Wall_Stair_Corner.prefab.meta       |    14 [31m-[m
+ .../prefabs/StairParts/Wall_Stair_Post.prefab      |   108 [31m-[m
+ .../prefabs/StairParts/Wall_Stair_Post.prefab.meta |    14 [31m-[m
+ .../prefabs/StairParts/Wall_Trim_1m.prefab         |   108 [31m-[m
+ .../prefabs/StairParts/Wall_Trim_1m.prefab.meta    |    14 [31m-[m
+ .../prefabs/StairParts/Wall_Trim_2m.prefab         |   108 [31m-[m
+ .../prefabs/StairParts/Wall_Trim_2m.prefab.meta    |    14 [31m-[m
+ .../prefabs/StairParts/Wall_Trim_3m.prefab         |   108 [31m-[m
+ .../prefabs/StairParts/Wall_Trim_3m.prefab.meta    |    14 [31m-[m
+ .../prefabs/StairParts/Wall_Trim_Corner.prefab     |   108 [31m-[m
+ .../StairParts/Wall_Trim_Corner.prefab.meta        |    14 [31m-[m
+ .../Interiors_A/prefabs/StairSet.meta              |     8 [31m-[m
+ .../prefabs/StairSet/Stairs_1m_A_Grp.prefab        |   465 [31m-[m
+ .../prefabs/StairSet/Stairs_1m_A_Grp.prefab.meta   |    14 [31m-[m
+ .../StairSet/Stairs_1m_A_Grp_Flipped.prefab        |   465 [31m-[m
+ .../StairSet/Stairs_1m_A_Grp_Flipped.prefab.meta   |    14 [31m-[m
+ .../prefabs/StairSet/Stairs_1m_B_Grp.prefab        |   572 [31m-[m
+ .../prefabs/StairSet/Stairs_1m_B_Grp.prefab.meta   |    14 [31m-[m
+ .../StairSet/Stairs_1m_B_Grp_Flipped.prefab        |   572 [31m-[m
+ .../StairSet/Stairs_1m_B_Grp_Flipped.prefab.meta   |    14 [31m-[m
+ .../prefabs/StairSet/Stairs_1m_C_Grp.prefab        |   572 [31m-[m
+ .../prefabs/StairSet/Stairs_1m_C_Grp.prefab.meta   |    14 [31m-[m
+ .../StairSet/Stairs_1m_C_Grp_Flipped.prefab        |   572 [31m-[m
+ .../StairSet/Stairs_1m_C_Grp_Flipped.prefab.meta   |    14 [31m-[m
+ .../prefabs/StairSet/Stairs_1m_D_Grp.prefab        |   572 [31m-[m
+ .../prefabs/StairSet/Stairs_1m_D_Grp.prefab.meta   |    14 [31m-[m
+ .../prefabs/StairSet/Stairs_1m_E_Grp.prefab        |   356 [31m-[m
+ .../prefabs/StairSet/Stairs_1m_E_Grp.prefab.meta   |    14 [31m-[m
+ .../prefabs/StairSet/Stairs_1m_F_Grp.prefab        |   571 [31m-[m
+ .../prefabs/StairSet/Stairs_1m_F_Grp.prefab.meta   |    14 [31m-[m
+ .../StairSet/Stairs_1m_F_Grp_Flipped.prefab        |   572 [31m-[m
+ .../StairSet/Stairs_1m_F_Grp_Flipped.prefab.meta   |    14 [31m-[m
+ .../prefabs/StairSet/Stairs_1m_G_Grp.prefab        |   465 [31m-[m
+ .../prefabs/StairSet/Stairs_1m_G_Grp.prefab.meta   |    14 [31m-[m
+ .../prefabs/StairSet/Stairs_2m_A_Grp.prefab        |   465 [31m-[m
+ .../prefabs/StairSet/Stairs_2m_A_Grp.prefab.meta   |    14 [31m-[m
+ .../StairSet/Stairs_2m_A_Grp_Flipped.prefab        |   465 [31m-[m
+ .../StairSet/Stairs_2m_A_Grp_Flipped.prefab.meta   |    14 [31m-[m
+ .../prefabs/StairSet/Stairs_2m_B_Grp.prefab        |   572 [31m-[m
+ .../prefabs/StairSet/Stairs_2m_B_Grp.prefab.meta   |    14 [31m-[m
+ .../StairSet/Stairs_2m_B_Grp_Flipped.prefab        |   572 [31m-[m
+ .../StairSet/Stairs_2m_B_Grp_Flipped.prefab.meta   |    14 [31m-[m
+ .../prefabs/StairSet/Stairs_2m_C_Grp.prefab        |   572 [31m-[m
+ .../prefabs/StairSet/Stairs_2m_C_Grp.prefab.meta   |    14 [31m-[m
+ .../StairSet/Stairs_2m_C_Grp_Flipped.prefab        |   572 [31m-[m
+ .../StairSet/Stairs_2m_C_Grp_Flipped.prefab.meta   |    14 [31m-[m
+ .../prefabs/StairSet/Stairs_2m_D_Grp.prefab        |   572 [31m-[m
+ .../prefabs/StairSet/Stairs_2m_D_Grp.prefab.meta   |    14 [31m-[m
+ .../prefabs/StairSet/Stairs_2m_E_Grp.prefab        |   356 [31m-[m
+ .../prefabs/StairSet/Stairs_2m_E_Grp.prefab.meta   |    14 [31m-[m
+ .../prefabs/StairSet/Stairs_2m_F_Grp.prefab        |   572 [31m-[m
+ .../prefabs/StairSet/Stairs_2m_F_Grp.prefab.meta   |    14 [31m-[m
+ .../StairSet/Stairs_2m_F_Grp_Flipped.prefab        |   572 [31m-[m
+ .../StairSet/Stairs_2m_F_Grp_Flipped.prefab.meta   |    14 [31m-[m
+ .../prefabs/StairSet/Stairs_2m_G_Grp.prefab        |   465 [31m-[m
+ .../prefabs/StairSet/Stairs_2m_G_Grp.prefab.meta   |    14 [31m-[m
+ .../prefabs/StairSet/Stairs_3m_A_Grp.prefab        |   572 [31m-[m
+ .../prefabs/StairSet/Stairs_3m_A_Grp.prefab.meta   |    14 [31m-[m
+ .../StairSet/Stairs_3m_A_Grp_Flipped.prefab        |   572 [31m-[m
+ .../StairSet/Stairs_3m_A_Grp_Flipped.prefab.meta   |    14 [31m-[m
+ .../prefabs/StairSet/Stairs_3m_B_Grp.prefab        |   679 [31m-[m
+ .../prefabs/StairSet/Stairs_3m_B_Grp.prefab.meta   |    14 [31m-[m
+ .../StairSet/Stairs_3m_B_Grp_Flipped.prefab        |   679 [31m-[m
+ .../StairSet/Stairs_3m_B_Grp_Flipped.prefab.meta   |    14 [31m-[m
+ .../prefabs/StairSet/Stairs_3m_C_Grp.prefab        |   679 [31m-[m
+ .../prefabs/StairSet/Stairs_3m_C_Grp.prefab.meta   |    14 [31m-[m
+ .../StairSet/Stairs_3m_C_Grp_Flipped.prefab        |   679 [31m-[m
+ .../StairSet/Stairs_3m_C_Grp_Flipped.prefab.meta   |    14 [31m-[m
+ .../prefabs/StairSet/Stairs_3m_D_Grp.prefab        |   679 [31m-[m
+ .../prefabs/StairSet/Stairs_3m_D_Grp.prefab.meta   |    14 [31m-[m
+ .../prefabs/StairSet/Stairs_3m_E_Grp.prefab        |   356 [31m-[m
+ .../prefabs/StairSet/Stairs_3m_E_Grp.prefab.meta   |    14 [31m-[m
+ .../prefabs/StairSet/Stairs_3m_F_Grp.prefab        |   572 [31m-[m
+ .../prefabs/StairSet/Stairs_3m_F_Grp.prefab.meta   |    14 [31m-[m
+ .../StairSet/Stairs_3m_F_Grp_Flipped.prefab        |   572 [31m-[m
+ .../StairSet/Stairs_3m_F_Grp_Flipped.prefab.meta   |    14 [31m-[m
+ .../prefabs/StairSet/Stairs_3m_G_Grp.prefab        |   465 [31m-[m
+ .../prefabs/StairSet/Stairs_3m_G_Grp.prefab.meta   |    14 [31m-[m
+ Assets/LoafbrrAssets/Interiors_A/prefabs/Vent.meta |     8 [31m-[m
+ .../Interiors_A/prefabs/Vent/Vent_1m.prefab        |   108 [31m-[m
+ .../Interiors_A/prefabs/Vent/Vent_1m.prefab.meta   |    14 [31m-[m
+ .../Interiors_A/prefabs/Vent/Vent_2m.prefab        |   108 [31m-[m
+ .../Interiors_A/prefabs/Vent/Vent_2m.prefab.meta   |    14 [31m-[m
+ .../Interiors_A/prefabs/Vent/Vent_3m.prefab        |   108 [31m-[m
+ .../Interiors_A/prefabs/Vent/Vent_3m.prefab.meta   |    14 [31m-[m
+ .../Interiors_A/prefabs/Vent/Vent_Corner_A.prefab  |   108 [31m-[m
+ .../prefabs/Vent/Vent_Corner_A.prefab.meta         |    14 [31m-[m
+ .../Interiors_A/prefabs/Vent/Vent_Corner_B.prefab  |   108 [31m-[m
+ .../prefabs/Vent/Vent_Corner_B.prefab.meta         |    14 [31m-[m
+ .../Interiors_A/prefabs/Vent/Vent_Corner_C.prefab  |   108 [31m-[m
+ .../prefabs/Vent/Vent_Corner_C.prefab.meta         |    14 [31m-[m
+ .../Interiors_A/prefabs/Vent/Vent_Corner_D.prefab  |   108 [31m-[m
+ .../prefabs/Vent/Vent_Corner_D.prefab.meta         |    14 [31m-[m
+ .../Interiors_A/prefabs/Vent/Vent_Corner_E.prefab  |   108 [31m-[m
+ .../prefabs/Vent/Vent_Corner_E.prefab.meta         |    14 [31m-[m
+ .../Interiors_A/prefabs/Vent/Vent_Corner_F.prefab  |   108 [31m-[m
+ .../prefabs/Vent/Vent_Corner_F.prefab.meta         |    14 [31m-[m
+ .../Interiors_A/prefabs/Vent/Vent_Corner_G.prefab  |   108 [31m-[m
+ .../prefabs/Vent/Vent_Corner_G.prefab.meta         |    14 [31m-[m
+ .../prefabs/Vent/Vent_Corner_G_Flipped.prefab      |   108 [31m-[m
+ .../prefabs/Vent/Vent_Corner_G_Flipped.prefab.meta |    14 [31m-[m
+ .../Interiors_A/prefabs/Vent/Vent_Vent.prefab      |   108 [31m-[m
+ .../Interiors_A/prefabs/Vent/Vent_Vent.prefab.meta |    14 [31m-[m
+ Assets/LoafbrrAssets/Interiors_A/prefabs/wall.meta |     8 [31m-[m
+ .../Interiors_A/prefabs/wall/Wall_1m.prefab        |   108 [31m-[m
+ .../Interiors_A/prefabs/wall/Wall_1m.prefab.meta   |    14 [31m-[m
+ .../Interiors_A/prefabs/wall/Wall_1m_1Side.prefab  |   108 [31m-[m
+ .../prefabs/wall/Wall_1m_1Side.prefab.meta         |    14 [31m-[m
+ .../Interiors_A/prefabs/wall/Wall_1m_Door.prefab   |   108 [31m-[m
+ .../prefabs/wall/Wall_1m_Door.prefab.meta          |    14 [31m-[m
+ .../Interiors_A/prefabs/wall/Wall_2m.prefab        |   108 [31m-[m
+ .../Interiors_A/prefabs/wall/Wall_2m.prefab.meta   |    14 [31m-[m
+ .../Interiors_A/prefabs/wall/Wall_2m_1Side.prefab  |   108 [31m-[m
+ .../prefabs/wall/Wall_2m_1Side.prefab.meta         |    14 [31m-[m
+ .../Interiors_A/prefabs/wall/Wall_2m_Door_A.prefab |   108 [31m-[m
+ .../prefabs/wall/Wall_2m_Door_A.prefab.meta        |    14 [31m-[m
+ .../Interiors_A/prefabs/wall/Wall_2m_Door_B.prefab |   108 [31m-[m
+ .../prefabs/wall/Wall_2m_Door_B.prefab.meta        |    14 [31m-[m
+ .../Interiors_A/prefabs/wall/Wall_2m_Vent_A.prefab |   109 [31m-[m
+ .../prefabs/wall/Wall_2m_Vent_A.prefab.meta        |    14 [31m-[m
+ .../Interiors_A/prefabs/wall/Wall_2m_Vent_B.prefab |   109 [31m-[m
+ .../prefabs/wall/Wall_2m_Vent_B.prefab.meta        |    14 [31m-[m
+ .../prefabs/wall/Wall_2m_Window_A.prefab           |   110 [31m-[m
+ .../prefabs/wall/Wall_2m_Window_A.prefab.meta      |    14 [31m-[m
+ .../prefabs/wall/Wall_2m_Window_B.prefab           |   108 [31m-[m
+ .../prefabs/wall/Wall_2m_Window_B.prefab.meta      |    14 [31m-[m
+ .../Interiors_A/prefabs/wall/Wall_3m.prefab        |   108 [31m-[m
+ .../Interiors_A/prefabs/wall/Wall_3m.prefab.meta   |    14 [31m-[m
+ .../Interiors_A/prefabs/wall/Wall_3m_1Side.prefab  |   108 [31m-[m
+ .../prefabs/wall/Wall_3m_1Side.prefab.meta         |    14 [31m-[m
+ .../Interiors_A/prefabs/wall/Wall_3m_Door_A.prefab |   108 [31m-[m
+ .../prefabs/wall/Wall_3m_Door_A.prefab.meta        |    14 [31m-[m
+ .../Interiors_A/prefabs/wall/Wall_3m_Door_B.prefab |   108 [31m-[m
+ .../prefabs/wall/Wall_3m_Door_B.prefab.meta        |    14 [31m-[m
+ .../Interiors_A/prefabs/wall/Wall_3m_Door_C.prefab |   108 [31m-[m
+ .../prefabs/wall/Wall_3m_Door_C.prefab.meta        |    14 [31m-[m
+ .../Interiors_A/prefabs/wall/Wall_3m_Vent_A.prefab |   109 [31m-[m
+ .../prefabs/wall/Wall_3m_Vent_A.prefab.meta        |    14 [31m-[m
+ .../Interiors_A/prefabs/wall/Wall_3m_Vent_B.prefab |   109 [31m-[m
+ .../prefabs/wall/Wall_3m_Vent_B.prefab.meta        |    14 [31m-[m
+ .../prefabs/wall/Wall_3m_Window_A.prefab           |   110 [31m-[m
+ .../prefabs/wall/Wall_3m_Window_A.prefab.meta      |    14 [31m-[m
+ .../prefabs/wall/Wall_3m_Window_B.prefab           |   108 [31m-[m
+ .../prefabs/wall/Wall_3m_Window_B.prefab.meta      |    14 [31m-[m
+ .../prefabs/wall/Wall_3m_Window_C.prefab           |   110 [31m-[m
+ .../prefabs/wall/Wall_3m_Window_C.prefab.meta      |    14 [31m-[m
+ .../prefabs/wall/Wall_3m_Window_D.prefab           |   108 [31m-[m
+ .../prefabs/wall/Wall_3m_Window_D.prefab.meta      |    14 [31m-[m
+ .../prefabs/wall/Wall_3m_Window_E.prefab           |   110 [31m-[m
+ .../prefabs/wall/Wall_3m_Window_E.prefab.meta      |    14 [31m-[m
+ .../prefabs/wall/Wall_3m_Window_E_Fliiped.prefab   |   110 [31m-[m
+ .../wall/Wall_3m_Window_E_Fliiped.prefab.meta      |    14 [31m-[m
+ .../prefabs/wall/Wall_3m_Window_F.prefab           |   110 [31m-[m
+ .../prefabs/wall/Wall_3m_Window_F.prefab.meta      |    14 [31m-[m
+ .../prefabs/wall/Wall_3m_Window_F_Flipped.prefab   |   110 [31m-[m
+ .../wall/Wall_3m_Window_F_Flipped.prefab.meta      |    14 [31m-[m
+ .../prefabs/wall/Wall_3m_Window_G.prefab           |   110 [31m-[m
+ .../prefabs/wall/Wall_3m_Window_G.prefab.meta      |    14 [31m-[m
+ .../prefabs/wall/Wall_3m_Window_H.prefab           |   110 [31m-[m
+ .../prefabs/wall/Wall_3m_Window_H.prefab.meta      |    14 [31m-[m
+ .../prefabs/wall/Wall_3m_Window_I.prefab           |   110 [31m-[m
+ .../prefabs/wall/Wall_3m_Window_I.prefab.meta      |    14 [31m-[m
+ .../Interiors_A/prefabs/wall/Wall_Bottom_1m.prefab |   109 [31m-[m
+ .../prefabs/wall/Wall_Bottom_1m.prefab.meta        |    14 [31m-[m
+ .../Interiors_A/prefabs/wall/Wall_Bottom_2m.prefab |   109 [31m-[m
+ .../prefabs/wall/Wall_Bottom_2m.prefab.meta        |    14 [31m-[m
+ .../Interiors_A/prefabs/wall/Wall_Bottom_3m.prefab |   109 [31m-[m
+ .../prefabs/wall/Wall_Bottom_3m.prefab.meta        |    14 [31m-[m
+ .../prefabs/wall/Wall_Bottom_Corner_A.prefab       |   109 [31m-[m
+ .../prefabs/wall/Wall_Bottom_Corner_A.prefab.meta  |    14 [31m-[m
+ .../prefabs/wall/Wall_Bottom_Corner_B.prefab       |   109 [31m-[m
+ .../prefabs/wall/Wall_Bottom_Corner_B.prefab.meta  |    14 [31m-[m
+ .../Interiors_A/prefabs/wall/Wall_Corner_A.prefab  |   108 [31m-[m
+ .../prefabs/wall/Wall_Corner_A.prefab.meta         |    14 [31m-[m
+ .../Interiors_A/prefabs/wall/Wall_Edge_1m.prefab   |   108 [31m-[m
+ .../prefabs/wall/Wall_Edge_1m.prefab.meta          |    14 [31m-[m
+ .../Interiors_A/prefabs/wall/Wall_Edge_2m.prefab   |   108 [31m-[m
+ .../prefabs/wall/Wall_Edge_2m.prefab.meta          |    14 [31m-[m
+ .../Interiors_A/prefabs/wall/Wall_Edge_3m.prefab   |   108 [31m-[m
+ .../prefabs/wall/Wall_Edge_3m.prefab.meta          |    14 [31m-[m
+ .../prefabs/wall/Wall_Edge_Corner_A.prefab         |   108 [31m-[m
+ .../prefabs/wall/Wall_Edge_Corner_A.prefab.meta    |    14 [31m-[m
+ .../prefabs/wall/Wall_Edge_Corner_B.prefab         |   108 [31m-[m
+ .../prefabs/wall/Wall_Edge_Corner_B.prefab.meta    |    14 [31m-[m
+ .../Interiors_A/prefabs/wall/Wall_Pillar_A.prefab  |   108 [31m-[m
+ .../prefabs/wall/Wall_Pillar_A.prefab.meta         |    14 [31m-[m
+ .../Interiors_A/prefabs/wall/Wall_Pillar_B.prefab  |   108 [31m-[m
+ .../prefabs/wall/Wall_Pillar_B.prefab.meta         |    14 [31m-[m
+ .../Interiors_A/prefabs/wall/Wall_Pillar_C.prefab  |   108 [31m-[m
+ .../prefabs/wall/Wall_Pillar_C.prefab.meta         |    14 [31m-[m
+ Assets/LoafbrrAssets/Interiors_A/texture.meta      |     8 [31m-[m
+ Assets/LoafbrrAssets/Interiors_A/texture/Door.meta |     8 [31m-[m
+ .../Interiors_A/texture/Door/Door_Alpha_1K.png     |   Bin [31m12904[m -> [32m0[m bytes
+ .../texture/Door/Door_Alpha_1K.png.meta            |   121 [31m-[m
+ .../Interiors_A/texture/Door/Door_Alpha_2K.png     |   Bin [31m44100[m -> [32m0[m bytes
+ .../texture/Door/Door_Alpha_2K.png.meta            |   121 [31m-[m
+ .../Interiors_A/texture/Door/Door_Diffuse_1K_A.png |   Bin [31m1261765[m -> [32m0[m bytes
+ .../texture/Door/Door_Diffuse_1K_A.png.meta        |   121 [31m-[m
+ .../Interiors_A/texture/Door/Door_Diffuse_1K_B.png |   Bin [31m1122064[m -> [32m0[m bytes
+ .../texture/Door/Door_Diffuse_1K_B.png.meta        |   121 [31m-[m
+ .../Interiors_A/texture/Door/Door_Diffuse_1K_C.png |   Bin [31m1794071[m -> [32m0[m bytes
+ .../texture/Door/Door_Diffuse_1K_C.png.meta        |   121 [31m-[m
+ .../Interiors_A/texture/Door/Door_Diffuse_2K_A.png |   Bin [31m5347557[m -> [32m0[m bytes
+ .../texture/Door/Door_Diffuse_2K_A.png.meta        |   121 [31m-[m
+ .../Interiors_A/texture/Door/Door_Diffuse_2K_B.png |   Bin [31m4476077[m -> [32m0[m bytes
+ .../texture/Door/Door_Diffuse_2K_B.png.meta        |   121 [31m-[m
+ .../Interiors_A/texture/Door/Door_Diffuse_2K_C.png |   Bin [31m7299967[m -> [32m0[m bytes
+ .../texture/Door/Door_Diffuse_2K_C.png.meta        |   121 [31m-[m
+ .../Interiors_A/texture/Door/Door_Mask_1K.png      |   Bin [31m13849[m -> [32m0[m bytes
+ .../Interiors_A/texture/Door/Door_Mask_1K.png.meta |   121 [31m-[m
+ .../Interiors_A/texture/Door/Door_Mask_2K.png      |   Bin [31m45550[m -> [32m0[m bytes
+ .../Interiors_A/texture/Door/Door_Mask_2K.png.meta |   121 [31m-[m
+ .../Interiors_A/texture/Door/Door_Normal_1K.png    |   Bin [31m1214992[m -> [32m0[m bytes
+ .../texture/Door/Door_Normal_1K.png.meta           |   121 [31m-[m
+ .../Interiors_A/texture/Door/Door_Normal_2K.png    |   Bin [31m5668957[m -> [32m0[m bytes
+ .../texture/Door/Door_Normal_2K.png.meta           |   121 [31m-[m
+ .../Interiors_A/texture/Door/Door_ORM_1K.png       |   Bin [31m1040021[m -> [32m0[m bytes
+ .../Interiors_A/texture/Door/Door_ORM_1K.png.meta  |   121 [31m-[m
+ .../Interiors_A/texture/Door/Door_ORM_2K.png       |   Bin [31m4317961[m -> [32m0[m bytes
+ .../Interiors_A/texture/Door/Door_ORM_2K.png.meta  |   121 [31m-[m
+ .../Interiors_A/texture/MiscTrim.meta              |     8 [31m-[m
+ .../texture/MiscTrim/MiscTrim_Diffuse_1K.png       |   Bin [31m1995428[m -> [32m0[m bytes
+ .../texture/MiscTrim/MiscTrim_Diffuse_1K.png.meta  |   121 [31m-[m
+ .../texture/MiscTrim/MiscTrim_Diffuse_2K.png       |   Bin [31m7835012[m -> [32m0[m bytes
+ .../texture/MiscTrim/MiscTrim_Diffuse_2K.png.meta  |   121 [31m-[m
+ .../texture/MiscTrim/MiscTrim_Emission_1K.png      |   Bin [31m10082[m -> [32m0[m bytes
+ .../texture/MiscTrim/MiscTrim_Emission_1K.png.meta |   121 [31m-[m
+ .../texture/MiscTrim/MiscTrim_Emission_2K.png      |   Bin [31m37700[m -> [32m0[m bytes
+ .../texture/MiscTrim/MiscTrim_Emission_2K.png.meta |   121 [31m-[m
+ .../texture/MiscTrim/MiscTrim_Normal_1K.png        |   Bin [31m371603[m -> [32m0[m bytes
+ .../texture/MiscTrim/MiscTrim_Normal_1K.png.meta   |   121 [31m-[m
+ .../texture/MiscTrim/MiscTrim_Normal_2K.png        |   Bin [31m2049195[m -> [32m0[m bytes
+ .../texture/MiscTrim/MiscTrim_Normal_2K.png.meta   |   121 [31m-[m
+ .../texture/MiscTrim/MiscTrim_ORM_1K.png           |   Bin [31m1087802[m -> [32m0[m bytes
+ .../texture/MiscTrim/MiscTrim_ORM_1K.png.meta      |   121 [31m-[m
+ .../texture/MiscTrim/MiscTrim_ORM_2K.png           |   Bin [31m4216662[m -> [32m0[m bytes
+ .../texture/MiscTrim/MiscTrim_ORM_2K.png.meta      |   121 [31m-[m
+ .../Interiors_A/texture/Surface_Ceiling_A.meta     |     8 [31m-[m
+ .../Surface_Ceiling_A_Diffuse_1K_A.png             |   Bin [31m1943512[m -> [32m0[m bytes
+ .../Surface_Ceiling_A_Diffuse_1K_A.png.meta        |   121 [31m-[m
+ .../Surface_Ceiling_A_Diffuse_1K_B.png             |   Bin [31m1924840[m -> [32m0[m bytes
+ .../Surface_Ceiling_A_Diffuse_1K_B.png.meta        |   121 [31m-[m
+ .../Surface_Ceiling_A_Diffuse_2K_A.png             |   Bin [31m7599315[m -> [32m0[m bytes
+ .../Surface_Ceiling_A_Diffuse_2K_A.png.meta        |   121 [31m-[m
+ .../Surface_Ceiling_A_Diffuse_2K_B.png             |   Bin [31m7552689[m -> [32m0[m bytes
+ .../Surface_Ceiling_A_Diffuse_2K_B.png.meta        |   121 [31m-[m
+ .../Surface_Ceiling_A_Normal_1K.png                |   Bin [31m680063[m -> [32m0[m bytes
+ .../Surface_Ceiling_A_Normal_1K.png.meta           |   121 [31m-[m
+ .../Surface_Ceiling_A_Normal_2K.png                |   Bin [31m3302659[m -> [32m0[m bytes
+ .../Surface_Ceiling_A_Normal_2K.png.meta           |   121 [31m-[m
+ .../Surface_Ceiling_A/Surface_Ceiling_A_ORM_1K.png |   Bin [31m850833[m -> [32m0[m bytes
+ .../Surface_Ceiling_A_ORM_1K.png.meta              |   121 [31m-[m
+ .../Surface_Ceiling_A/Surface_Ceiling_A_ORM_2K.png |   Bin [31m3236309[m -> [32m0[m bytes
+ .../Surface_Ceiling_A_ORM_2K.png.meta              |   121 [31m-[m
+ .../Interiors_A/texture/Surface_Ceiling_B.meta     |     8 [31m-[m
+ .../Surface_Ceiling_B_Diffuse_1K_A.png             |   Bin [31m1195450[m -> [32m0[m bytes
+ .../Surface_Ceiling_B_Diffuse_1K_A.png.meta        |   121 [31m-[m
+ .../Surface_Ceiling_B_Diffuse_1K_B.png             |   Bin [31m1002092[m -> [32m0[m bytes
+ .../Surface_Ceiling_B_Diffuse_1K_B.png.meta        |   121 [31m-[m
+ .../Surface_Ceiling_B_Diffuse_2K_A.png             |   Bin [31m4290207[m -> [32m0[m bytes
+ .../Surface_Ceiling_B_Diffuse_2K_A.png.meta        |   121 [31m-[m
+ .../Surface_Ceiling_B_Diffuse_2K_B.png             |   Bin [31m3697979[m -> [32m0[m bytes
+ .../Surface_Ceiling_B_Diffuse_2K_B.png.meta        |   121 [31m-[m
+ .../Surface_Ceiling_B_Normal_1K.png                |   Bin [31m3950811[m -> [32m0[m bytes
+ .../Surface_Ceiling_B_Normal_1K.png.meta           |   121 [31m-[m
+ .../Surface_Ceiling_B_Normal_2K.png                |   Bin [31m15467680[m -> [32m0[m bytes
+ .../Surface_Ceiling_B_Normal_2K.png.meta           |   121 [31m-[m
+ .../Surface_Ceiling_B/Surface_Ceiling_B_ORM_1K.png |   Bin [31m489055[m -> [32m0[m bytes
+ .../Surface_Ceiling_B_ORM_1K.png.meta              |   121 [31m-[m
+ .../Surface_Ceiling_B/Surface_Ceiling_B_ORM_2K.png |   Bin [31m1704492[m -> [32m0[m bytes
+ .../Surface_Ceiling_B_ORM_2K.png.meta              |   121 [31m-[m
+ .../Interiors_A/texture/Surface_Floor_A.meta       |     8 [31m-[m
+ .../Surface_Floor_A/Surface_Floor_A_Diffuse_1K.png |   Bin [31m1054249[m -> [32m0[m bytes
+ .../Surface_Floor_A_Diffuse_1K.png.meta            |   121 [31m-[m
+ .../Surface_Floor_A/Surface_Floor_A_Diffuse_2K.png |   Bin [31m4215602[m -> [32m0[m bytes
+ .../Surface_Floor_A_Diffuse_2K.png.meta            |   121 [31m-[m
+ .../Surface_Floor_A/Surface_Floor_A_Normal_1K.png  |   Bin [31m5115242[m -> [32m0[m bytes
+ .../Surface_Floor_A_Normal_1K.png.meta             |   121 [31m-[m
+ .../Surface_Floor_A/Surface_Floor_A_Normal_2K.png  |   Bin [31m20203450[m -> [32m0[m bytes
+ .../Surface_Floor_A_Normal_2K.png.meta             |   121 [31m-[m
+ .../Surface_Floor_A/Surface_Floor_A_ORM_1K.png     |   Bin [31m841180[m -> [32m0[m bytes
+ .../Surface_Floor_A_ORM_1K.png.meta                |   121 [31m-[m
+ .../Surface_Floor_A/Surface_Floor_A_ORM_2K.png     |   Bin [31m3267064[m -> [32m0[m bytes
+ .../Surface_Floor_A_ORM_2K.png.meta                |   121 [31m-[m
+ .../Interiors_A/texture/Surface_Floor_B.meta       |     8 [31m-[m
+ .../Surface_Floor_B/Surface_Floor_B_Diffuse_1K.png |   Bin [31m429376[m -> [32m0[m bytes
+ .../Surface_Floor_B_Diffuse_1K.png.meta            |   121 [31m-[m
+ .../Surface_Floor_B/Surface_Floor_B_Diffuse_2K.png |   Bin [31m1451456[m -> [32m0[m bytes
+ .../Surface_Floor_B_Diffuse_2K.png.meta            |   121 [31m-[m
+ .../Surface_Floor_B/Surface_Floor_B_Normal_1K.png  |   Bin [31m5201790[m -> [32m0[m bytes
+ .../Surface_Floor_B_Normal_1K.png.meta             |   121 [31m-[m
+ .../Surface_Floor_B/Surface_Floor_B_Normal_2K.png  |   Bin [31m20940560[m -> [32m0[m bytes
+ .../Surface_Floor_B_Normal_2K.png.meta             |   121 [31m-[m
+ .../Surface_Floor_B/Surface_Floor_B_ORM_1K.png     |   Bin [31m822526[m -> [32m0[m bytes
+ .../Surface_Floor_B_ORM_1K.png.meta                |   121 [31m-[m
+ .../Surface_Floor_B/Surface_Floor_B_ORM_2K.png     |   Bin [31m2984220[m -> [32m0[m bytes
+ .../Surface_Floor_B_ORM_2K.png.meta                |   121 [31m-[m
+ .../Interiors_A/texture/Surface_Wall_A.meta        |     8 [31m-[m
+ .../Surface_Wall_A/Surface_Wall_A_Diffuse_1K_A.png |   Bin [31m706899[m -> [32m0[m bytes
+ .../Surface_Wall_A_Diffuse_1K_A.png.meta           |   121 [31m-[m
+ .../Surface_Wall_A/Surface_Wall_A_Diffuse_1K_B.png |   Bin [31m963137[m -> [32m0[m bytes
+ .../Surface_Wall_A_Diffuse_1K_B.png.meta           |   121 [31m-[m
+ .../Surface_Wall_A/Surface_Wall_A_Diffuse_2K_A.png |   Bin [31m2940739[m -> [32m0[m bytes
+ .../Surface_Wall_A_Diffuse_2K_A.png.meta           |   121 [31m-[m
+ .../Surface_Wall_A/Surface_Wall_A_Diffuse_2K_B.png |   Bin [31m4100199[m -> [32m0[m bytes
+ .../Surface_Wall_A_Diffuse_2K_B.png.meta           |   121 [31m-[m
+ .../Surface_Wall_A/Surface_Wall_A_Normal_1K.png    |   Bin [31m3858008[m -> [32m0[m bytes
+ .../Surface_Wall_A_Normal_1K.png.meta              |   121 [31m-[m
+ .../Surface_Wall_A/Surface_Wall_A_Normal_2K.png    |   Bin [31m15790940[m -> [32m0[m bytes
+ .../Surface_Wall_A_Normal_2K.png.meta              |   121 [31m-[m
+ .../Surface_Wall_A/Surface_Wall_A_ORM_1K.png       |   Bin [31m391489[m -> [32m0[m bytes
+ .../Surface_Wall_A/Surface_Wall_A_ORM_1K.png.meta  |   121 [31m-[m
+ .../Surface_Wall_A/Surface_Wall_A_ORM_2K.png       |   Bin [31m1304947[m -> [32m0[m bytes
+ .../Surface_Wall_A/Surface_Wall_A_ORM_2K.png.meta  |   121 [31m-[m
+ Assets/PIPIPI.meta                                 |     8 [31m-[m
+ Assets/PIPIPI/arunangshubanerjee-elevator-2069.glb |   Bin [31m3862532[m -> [32m0[m bytes
+ .../arunangshubanerjee-elevator-2069.glb.meta      |     7 [31m-[m
+ Assets/PIPIPI/diseno_de_un_ascensor.glb            |   Bin [31m90620[m -> [32m0[m bytes
+ Assets/PIPIPI/diseno_de_un_ascensor.glb.meta       |     7 [31m-[m
+ Assets/PIPIPI/op1(1).fbx                           |   Bin [31m107408[m -> [32m0[m bytes
+ Assets/PIPIPI/op1(1).fbx.meta                      |   109 [31m-[m
+ Assets/PolyKebap.meta                              |     8 [31m-[m
+ Assets/PolyKebap/Doors.meta                        |     8 [31m-[m
+ Assets/PolyKebap/Doors/DemoScene.meta              |     8 [31m-[m
+ Assets/PolyKebap/Doors/DemoScene/DemoScene.unity   |  2800 [31m--[m
+ .../PolyKebap/Doors/DemoScene/DemoScene.unity.meta |    14 [31m-[m
+ Assets/PolyKebap/Doors/DemoScene/Walls.mat         |   137 [31m-[m
+ Assets/PolyKebap/Doors/DemoScene/Walls.mat.meta    |    15 [31m-[m
+ Assets/PolyKebap/Doors/Materials.meta              |     8 [31m-[m
+ Assets/PolyKebap/Doors/Materials/Black_Matte.mat   |   137 [31m-[m
+ .../PolyKebap/Doors/Materials/Black_Matte.mat.meta |    15 [31m-[m
+ Assets/PolyKebap/Doors/Materials/Door_A.mat        |   137 [31m-[m
+ Assets/PolyKebap/Doors/Materials/Door_A.mat.meta   |    15 [31m-[m
+ Assets/PolyKebap/Doors/Materials/Door_B.mat        |   138 [31m-[m
+ Assets/PolyKebap/Doors/Materials/Door_B.mat.meta   |    15 [31m-[m
+ Assets/PolyKebap/Doors/Materials/Door_C.mat        |   138 [31m-[m
+ Assets/PolyKebap/Doors/Materials/Door_C.mat.meta   |    15 [31m-[m
+ Assets/PolyKebap/Doors/Materials/Door_Frame.mat    |   137 [31m-[m
+ .../PolyKebap/Doors/Materials/Door_Frame.mat.meta  |    15 [31m-[m
+ Assets/PolyKebap/Doors/Materials/Metal.mat         |   137 [31m-[m
+ Assets/PolyKebap/Doors/Materials/Metal.mat.meta    |    15 [31m-[m
+ Assets/PolyKebap/Doors/Meshes.meta                 |     8 [31m-[m
+ Assets/PolyKebap/Doors/Meshes/Door_1m_Left.fbx     |   Bin [31m15820[m -> [32m0[m bytes
+ .../PolyKebap/Doors/Meshes/Door_1m_Left.fbx.meta   |   114 [31m-[m
+ Assets/PolyKebap/Doors/Meshes/Door_1m_Right.fbx    |   Bin [31m15724[m -> [32m0[m bytes
+ .../PolyKebap/Doors/Meshes/Door_1m_Right.fbx.meta  |   114 [31m-[m
+ Assets/PolyKebap/Doors/Meshes/Door_Handle.fbx      |   Bin [31m13372[m -> [32m0[m bytes
+ Assets/PolyKebap/Doors/Meshes/Door_Handle.fbx.meta |   114 [31m-[m
+ Assets/PolyKebap/Doors/Meshes/Door_Handle_Long.fbx |   Bin [31m12844[m -> [32m0[m bytes
+ .../Doors/Meshes/Door_Handle_Long.fbx.meta         |   114 [31m-[m
+ Assets/PolyKebap/Doors/Meshes/Door_Lock_Long.fbx   |   Bin [31m17436[m -> [32m0[m bytes
+ .../PolyKebap/Doors/Meshes/Door_Lock_Long.fbx.meta |   114 [31m-[m
+ Assets/PolyKebap/Doors/Meshes/Frame_1m.fbx         |   Bin [31m12972[m -> [32m0[m bytes
+ Assets/PolyKebap/Doors/Meshes/Frame_1m.fbx.meta    |   114 [31m-[m
+ Assets/PolyKebap/Doors/Meshes/Hinge.fbx            |   Bin [31m11964[m -> [32m0[m bytes
+ Assets/PolyKebap/Doors/Meshes/Hinge.fbx.meta       |   114 [31m-[m
+ Assets/PolyKebap/Doors/Meshes/door_lock_round.fbx  |   Bin [31m17372[m -> [32m0[m bytes
+ .../Doors/Meshes/door_lock_round.fbx.meta          |   114 [31m-[m
+ Assets/PolyKebap/Doors/Prefabs.meta                |     8 [31m-[m
+ .../PolyKebap/Doors/Prefabs/Door_1m_A_left.prefab  |   754 [31m-[m
+ .../Doors/Prefabs/Door_1m_A_left.prefab.meta       |    14 [31m-[m
+ .../PolyKebap/Doors/Prefabs/Door_1m_A_right.prefab |   754 [31m-[m
+ .../Doors/Prefabs/Door_1m_A_right.prefab.meta      |    14 [31m-[m
+ .../PolyKebap/Doors/Prefabs/Door_1m_B_left.prefab  |   754 [31m-[m
+ .../Doors/Prefabs/Door_1m_B_left.prefab.meta       |    14 [31m-[m
+ .../PolyKebap/Doors/Prefabs/Door_1m_B_right.prefab |   754 [31m-[m
+ .../Doors/Prefabs/Door_1m_B_right.prefab.meta      |    14 [31m-[m
+ .../PolyKebap/Doors/Prefabs/Door_1m_C_left.prefab  |   754 [31m-[m
+ .../Doors/Prefabs/Door_1m_C_left.prefab.meta       |    14 [31m-[m
+ .../PolyKebap/Doors/Prefabs/Door_1m_C_right.prefab |   754 [31m-[m
+ .../Doors/Prefabs/Door_1m_C_right.prefab.meta      |    14 [31m-[m
+ Assets/PolyKebap/Doors/Prefabs/Door_2m_A.prefab    |  1144 [31m-[m
+ .../PolyKebap/Doors/Prefabs/Door_2m_A.prefab.meta  |    14 [31m-[m
+ Assets/PolyKebap/Doors/Prefabs/Door_2m_A_v2.prefab |   860 [31m-[m
+ .../Doors/Prefabs/Door_2m_A_v2.prefab.meta         |    14 [31m-[m
+ Assets/PolyKebap/Doors/Prefabs/Door_2m_B.prefab    |  1144 [31m-[m
+ .../PolyKebap/Doors/Prefabs/Door_2m_B.prefab.meta  |    14 [31m-[m
+ Assets/PolyKebap/Doors/Prefabs/Door_2m_B_v2.prefab |   860 [31m-[m
+ .../Doors/Prefabs/Door_2m_B_v2.prefab.meta         |    14 [31m-[m
+ Assets/PolyKebap/Doors/Prefabs/Door_2m_C.prefab    |  1144 [31m-[m
+ .../PolyKebap/Doors/Prefabs/Door_2m_C.prefab.meta  |    14 [31m-[m
+ Assets/PolyKebap/Doors/Prefabs/Door_2m_C_v2.prefab |   860 [31m-[m
+ .../Doors/Prefabs/Door_2m_C_v2.prefab.meta         |    14 [31m-[m
+ Assets/PolyKebap/Doors/Textures.meta               |     8 [31m-[m
+ Assets/PolyKebap/Doors/Textures/Door_Normal_1.png  |   Bin [31m12572[m -> [32m0[m bytes
+ .../Doors/Textures/Door_Normal_1.png.meta          |   124 [31m-[m
+ Assets/PolyKebap/Doors/Textures/Door_Normal_2.png  |   Bin [31m16192[m -> [32m0[m bytes
+ .../Doors/Textures/Door_Normal_2.png.meta          |   124 [31m-[m
+ Assets/ProBuilder Data.meta                        |     8 [31m-[m
+ .../ProBuilder Data/Default Material Palette.asset |    25 [31m-[m
+ .../Default Material Palette.asset.meta            |     8 [31m-[m
+ Assets/Samples.meta                                |     8 [31m-[m
+ Assets/Samples/ProBuilder.meta                     |     8 [31m-[m
+ Assets/Samples/ProBuilder/6.0.9.meta               |     8 [31m-[m
+ .../Samples/ProBuilder/6.0.9/Editor Examples.meta  |     8 [31m-[m
+ .../6.0.9/Editor Examples/ClearUnusedAttributes.cs |    40 [31m-[m
+ .../Editor Examples/ClearUnusedAttributes.cs.meta  |    12 [31m-[m
+ .../6.0.9/Editor Examples/EditorCallbackViewer.cs  |   137 [31m-[m
+ .../Editor Examples/EditorCallbackViewer.cs.meta   |    12 [31m-[m
+ .../6.0.9/Editor Examples/RenameNewObjects.cs      |    42 [31m-[m
+ .../6.0.9/Editor Examples/RenameNewObjects.cs.meta |    12 [31m-[m
+ .../6.0.9/Editor Examples/SetCustomUnwrapParams.cs |    46 [31m-[m
+ .../Editor Examples/SetCustomUnwrapParams.cs.meta  |    12 [31m-[m
+ .../Unity.ProBuilder.Examples.Editor.asmdef        |    18 [31m-[m
+ .../Unity.ProBuilder.Examples.Editor.asmdef.meta   |     7 [31m-[m
+ .../Samples/ProBuilder/6.0.9/Runtime Examples.meta |     8 [31m-[m
+ .../Runtime Examples/Convert Mesh to Editable.meta |     8 [31m-[m
+ .../MakePrimitiveEditable.cs                       |    39 [31m-[m
+ .../MakePrimitiveEditable.cs.meta                  |    11 [31m-[m
+ .../ProBuilderize Scene.unity                      |   343 [31m-[m
+ .../ProBuilderize Scene.unity.meta                 |     7 [31m-[m
+ .../6.0.9/Runtime Examples/Icosphere FFT.meta      |     8 [31m-[m
+ .../Icosphere FFT/Audio Visualizer.unity           |  3468 [31m--[m
+ .../Icosphere FFT/Audio Visualizer.unity.meta      |     8 [31m-[m
+ .../Runtime Examples/Icosphere FFT/Material.meta   |     9 [31m-[m
+ .../Icosphere FFT/Material/ProBuilderIcon.tga      |   Bin [31m393260[m -> [32m0[m bytes
+ .../Icosphere FFT/Material/ProBuilderIcon.tga.meta |    55 [31m-[m
+ .../Icosphere FFT/Material/Unlit Color.mat         |    77 [31m-[m
+ .../Icosphere FFT/Material/Unlit Color.mat.meta    |     8 [31m-[m
+ .../Runtime Examples/Icosphere FFT/README.txt      |     4 [31m-[m
+ .../Runtime Examples/Icosphere FFT/README.txt.meta |     4 [31m-[m
+ .../Runtime Examples/Icosphere FFT/Scripts.meta    |     9 [31m-[m
+ .../Icosphere FFT/Scripts/CameraControls.cs        |    72 [31m-[m
+ .../Icosphere FFT/Scripts/CameraControls.cs.meta   |    12 [31m-[m
+ .../Icosphere FFT/Scripts/IcoBumpin.cs             |   270 [31m-[m
+ .../Icosphere FFT/Scripts/IcoBumpin.cs.meta        |    12 [31m-[m
+ .../Runtime Examples/Icosphere FFT/Skybox.meta     |     9 [31m-[m
+ .../Icosphere FFT/Skybox/Space.mat                 |   199 [31m-[m
+ .../Icosphere FFT/Skybox/Space.mat.meta            |     8 [31m-[m
+ .../Icosphere FFT/Skybox/Space_back.png            |   Bin [31m3170[m -> [32m0[m bytes
+ .../Icosphere FFT/Skybox/Space_back.png.meta       |    55 [31m-[m
+ .../Icosphere FFT/Skybox/Space_down.png            |   Bin [31m2962[m -> [32m0[m bytes
+ .../Icosphere FFT/Skybox/Space_down.png.meta       |    55 [31m-[m
+ .../Icosphere FFT/Skybox/Space_front.png           |   Bin [31m3178[m -> [32m0[m bytes
+ .../Icosphere FFT/Skybox/Space_front.png.meta      |    55 [31m-[m
+ .../Icosphere FFT/Skybox/Space_left.png            |   Bin [31m3191[m -> [32m0[m bytes
+ .../Icosphere FFT/Skybox/Space_left.png.meta       |    55 [31m-[m
+ .../Icosphere FFT/Skybox/Space_right.png           |   Bin [31m3036[m -> [32m0[m bytes
+ .../Icosphere FFT/Skybox/Space_right.png.meta      |    55 [31m-[m
+ .../Icosphere FFT/Skybox/Space_up.png              |   Bin [31m3037[m -> [32m0[m bytes
+ .../Icosphere FFT/Skybox/Space_up.png.meta         |    55 [31m-[m
+ .../ProBuilder/6.0.9/Runtime Examples/Misc.meta    |     5 [31m-[m
+ .../6.0.9/Runtime Examples/Misc/CreatePolyShape.cs |    43 [31m-[m
+ .../Runtime Examples/Misc/CreatePolyShape.cs.meta  |    11 [31m-[m
+ .../6.0.9/Runtime Examples/Misc/HueCube.cs         |    50 [31m-[m
+ .../6.0.9/Runtime Examples/Misc/HueCube.cs.meta    |     8 [31m-[m
+ .../6.0.9/Runtime Examples/Procedural Mesh.meta    |     9 [31m-[m
+ .../Procedural Mesh/Extrude Random Edges.unity     |   318 [31m-[m
+ .../Extrude Random Edges.unity.meta                |     8 [31m-[m
+ .../Procedural Mesh/ExtrudeRandomEdges.cs          |    72 [31m-[m
+ .../Procedural Mesh/ExtrudeRandomEdges.cs.meta     |    12 [31m-[m
+ .../6.0.9/Runtime Examples/Runtime Editing.meta    |     2 [31m-[m
+ .../Runtime Examples/Runtime Editing/Icons.meta    |     8 [31m-[m
+ .../Runtime Editing/Icons/MinusArrow.png           |   Bin [31m528[m -> [32m0[m bytes
+ .../Runtime Editing/Icons/MinusArrow.png.meta      |    90 [31m-[m
+ .../Runtime Editing/Icons/MoveArrow.png            |   Bin [31m618[m -> [32m0[m bytes
+ .../Runtime Editing/Icons/MoveArrow.png.meta       |    90 [31m-[m
+ .../Runtime Editing/Icons/OrbitView.png            |   Bin [31m720[m -> [32m0[m bytes
+ .../Runtime Editing/Icons/OrbitView.png.meta       |    90 [31m-[m
+ .../Runtime Editing/Icons/PanView.png              |   Bin [31m388[m -> [32m0[m bytes
+ .../Runtime Editing/Icons/PanView.png.meta         |    90 [31m-[m
+ .../Runtime Editing/Icons/PlusArrow.png            |   Bin [31m581[m -> [32m0[m bytes
+ .../Runtime Editing/Icons/PlusArrow.png.meta       |    90 [31m-[m
+ .../Runtime Editing/Icons/SlideArrow.png           |   Bin [31m521[m -> [32m0[m bytes
+ .../Runtime Editing/Icons/SlideArrow.png.meta      |    90 [31m-[m
+ .../Runtime Editing/Icons/ZoomView.png             |   Bin [31m670[m -> [32m0[m bytes
+ .../Runtime Editing/Icons/ZoomView.png.meta        |    90 [31m-[m
+ .../Runtime Examples/Runtime Editing/Material.meta |     8 [31m-[m
+ .../Runtime Editing/Material/Grid.mat              |    77 [31m-[m
+ .../Runtime Editing/Material/Grid.mat.meta         |     8 [31m-[m
+ .../Runtime Editing/MeshEditorScene.unity          |  1344 [31m-[m
+ .../Runtime Editing/MeshEditorScene.unity.meta     |     7 [31m-[m
+ .../Runtime Examples/Runtime Editing/README.md     |     7 [31m-[m
+ .../Runtime Editing/README.md.meta                 |     7 [31m-[m
+ .../Runtime Examples/Runtime Editing/Scripts.meta  |     8 [31m-[m
+ .../Runtime Editing/Scripts/CameraMotion.cs        |   379 [31m-[m
+ .../Runtime Editing/Scripts/CameraMotion.cs.meta   |    15 [31m-[m
+ .../Runtime Editing/Scripts/Handles.cs             |   136 [31m-[m
+ .../Runtime Editing/Scripts/Handles.cs.meta        |     3 [31m-[m
+ .../Runtime Editing/Scripts/MeshEditor.cs          |   162 [31m-[m
+ .../Runtime Editing/Scripts/MeshEditor.cs.meta     |    11 [31m-[m
+ .../Runtime Editing/Scripts/Selection.cs           |    43 [31m-[m
+ .../Runtime Editing/Scripts/Selection.cs.meta      |     3 [31m-[m
+ .../Runtime Editing/Scripts/SimpleGrid.cs          |    66 [31m-[m
+ .../Runtime Editing/Scripts/SimpleGrid.cs.meta     |     3 [31m-[m
+ .../Runtime Editing/Scripts/Utility.cs             |    38 [31m-[m
+ .../Runtime Editing/Scripts/Utility.cs.meta        |     3 [31m-[m
+ .../Unity.ProBuilder.Examples.asmdef               |    15 [31m-[m
+ .../Unity.ProBuilder.Examples.asmdef.meta          |     7 [31m-[m
+ .../6.0.9/Runtime Examples/Vertex Colors.meta      |     9 [31m-[m
+ .../Vertex Colors/HighlightNearestFace.cs          |   129 [31m-[m
+ .../Vertex Colors/HighlightNearestFace.cs.meta     |    12 [31m-[m
+ .../Vertex Colors/HighlightNearestFace.unity       |   380 [31m-[m
+ .../Vertex Colors/HighlightNearestFace.unity.meta  |     8 [31m-[m
+ Assets/Scenes.meta                                 |     8 [31m-[m
+ Assets/Scenes/SampleScene.unity                    | 47822 [31m-------------------[m
+ Assets/Scenes/SampleScene.unity.meta               |     7 [31m-[m
+ "Assets/Se\303\261ales.meta"                       |     8 [31m-[m
+ "Assets/Se\303\261ales/FlechaSAL.mat"              |    84 [31m-[m
+ "Assets/Se\303\261ales/FlechaSAL.mat.meta"         |     8 [31m-[m
+ "Assets/Se\303\261ales/SAL.png"                    |   Bin [31m41537[m -> [32m0[m bytes
+ "Assets/Se\303\261ales/SAL.png.meta"               |   117 [31m-[m
+ "Assets/Se\303\261ales/SalidaEMER.mat"             |    84 [31m-[m
+ "Assets/Se\303\261ales/SalidaEMER.mat.meta"        |     8 [31m-[m
+ "Assets/Se\303\261ales/Se\303\261al Segura.png"    |   Bin [31m254411[m -> [32m0[m bytes
+ .../Se\303\261ales/Se\303\261al Segura.png.meta"   |   117 [31m-[m
+ "Assets/Se\303\261ales/Se\303\261alSegura.mat"     |    84 [31m-[m
+ .../Se\303\261ales/Se\303\261alSegura.mat.meta"    |     8 [31m-[m
+ "Assets/Se\303\261ales/salidaizq.jpg"              |   Bin [31m33557[m -> [32m0[m bytes
+ "Assets/Se\303\261ales/salidaizq.jpg.meta"         |   117 [31m-[m
+ Assets/TextMesh Pro.meta                           |     8 [31m-[m
+ Assets/TextMesh Pro/Fonts.meta                     |     8 [31m-[m
+ Assets/TextMesh Pro/Fonts/LiberationSans - OFL.txt |    46 [31m-[m
+ .../Fonts/LiberationSans - OFL.txt.meta            |     8 [31m-[m
+ Assets/TextMesh Pro/Fonts/LiberationSans.ttf       |   Bin [31m350200[m -> [32m0[m bytes
+ Assets/TextMesh Pro/Fonts/LiberationSans.ttf.meta  |    19 [31m-[m
+ Assets/TextMesh Pro/Resources.meta                 |     8 [31m-[m
+ .../TextMesh Pro/Resources/Fonts & Materials.meta  |     9 [31m-[m
+ .../LiberationSans SDF - Drop Shadow.mat           |   106 [31m-[m
+ .../LiberationSans SDF - Drop Shadow.mat.meta      |     8 [31m-[m
+ .../LiberationSans SDF - Fallback.asset            |   348 [31m-[m
+ .../LiberationSans SDF - Fallback.asset.meta       |     8 [31m-[m
+ .../LiberationSans SDF - Outline.mat               |   104 [31m-[m
+ .../LiberationSans SDF - Outline.mat.meta          |     8 [31m-[m
+ .../Fonts & Materials/LiberationSans SDF.asset     |  7821 [31m---[m
+ .../LiberationSans SDF.asset.meta                  |     8 [31m-[m
+ .../LineBreaking Following Characters.txt          |     1 [31m-[m
+ .../LineBreaking Following Characters.txt.meta     |     8 [31m-[m
+ .../Resources/LineBreaking Leading Characters.txt  |     1 [31m-[m
+ .../LineBreaking Leading Characters.txt.meta       |     8 [31m-[m
+ Assets/TextMesh Pro/Resources/Sprite Assets.meta   |     9 [31m-[m
+ .../Resources/Sprite Assets/EmojiOne.asset         |   659 [31m-[m
+ .../Resources/Sprite Assets/EmojiOne.asset.meta    |     8 [31m-[m
+ Assets/TextMesh Pro/Resources/Style Sheets.meta    |     9 [31m-[m
+ .../Style Sheets/Default Style Sheet.asset         |    81 [31m-[m
+ .../Style Sheets/Default Style Sheet.asset.meta    |     8 [31m-[m
+ Assets/TextMesh Pro/Resources/TMP Settings.asset   |    52 [31m-[m
+ .../TextMesh Pro/Resources/TMP Settings.asset.meta |     8 [31m-[m
+ Assets/TextMesh Pro/Shaders.meta                   |     8 [31m-[m
+ Assets/TextMesh Pro/Shaders/SDFFunctions.hlsl      |   178 [31m-[m
+ Assets/TextMesh Pro/Shaders/SDFFunctions.hlsl.meta |    10 [31m-[m
+ .../Shaders/TMP_Bitmap-Custom-Atlas.shader         |   145 [31m-[m
+ .../Shaders/TMP_Bitmap-Custom-Atlas.shader.meta    |     9 [31m-[m
+ .../TextMesh Pro/Shaders/TMP_Bitmap-Mobile.shader  |   155 [31m-[m
+ .../Shaders/TMP_Bitmap-Mobile.shader.meta          |     9 [31m-[m
+ Assets/TextMesh Pro/Shaders/TMP_Bitmap.shader      |   145 [31m-[m
+ Assets/TextMesh Pro/Shaders/TMP_Bitmap.shader.meta |     9 [31m-[m
+ Assets/TextMesh Pro/Shaders/TMP_SDF Overlay.shader |   326 [31m-[m
+ .../Shaders/TMP_SDF Overlay.shader.meta            |     9 [31m-[m
+ Assets/TextMesh Pro/Shaders/TMP_SDF SSD.shader     |   321 [31m-[m
+ .../TextMesh Pro/Shaders/TMP_SDF SSD.shader.meta   |     9 [31m-[m
+ .../Shaders/TMP_SDF-HDRP LIT.shadergraph           | 12074 [31m-----[m
+ .../Shaders/TMP_SDF-HDRP LIT.shadergraph.meta      |    10 [31m-[m
+ .../Shaders/TMP_SDF-HDRP UNLIT.shadergraph         | 11759 [31m-----[m
+ .../Shaders/TMP_SDF-HDRP UNLIT.shadergraph.meta    |    10 [31m-[m
+ .../Shaders/TMP_SDF-Mobile Masking.shader          |   258 [31m-[m
+ .../Shaders/TMP_SDF-Mobile Masking.shader.meta     |     9 [31m-[m
+ .../Shaders/TMP_SDF-Mobile Overlay.shader          |   252 [31m-[m
+ .../Shaders/TMP_SDF-Mobile Overlay.shader.meta     |     9 [31m-[m
+ .../TextMesh Pro/Shaders/TMP_SDF-Mobile SSD.shader |   106 [31m-[m
+ .../Shaders/TMP_SDF-Mobile SSD.shader.meta         |     9 [31m-[m
+ .../Shaders/TMP_SDF-Mobile-2-Pass.shader           |   389 [31m-[m
+ .../Shaders/TMP_SDF-Mobile-2-Pass.shader.meta      |     9 [31m-[m
+ Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile.shader  |   250 [31m-[m
+ .../Shaders/TMP_SDF-Mobile.shader.meta             |     9 [31m-[m
+ .../Shaders/TMP_SDF-Surface-Mobile.shader          |   139 [31m-[m
+ .../Shaders/TMP_SDF-Surface-Mobile.shader.meta     |     9 [31m-[m
+ Assets/TextMesh Pro/Shaders/TMP_SDF-Surface.shader |   159 [31m-[m
+ .../Shaders/TMP_SDF-Surface.shader.meta            |     9 [31m-[m
+ .../Shaders/TMP_SDF-URP Lit.shadergraph            | 11932 [31m-----[m
+ .../Shaders/TMP_SDF-URP Lit.shadergraph.meta       |    10 [31m-[m
+ .../Shaders/TMP_SDF-URP Unlit.shadergraph          | 11629 [31m-----[m
+ .../Shaders/TMP_SDF-URP Unlit.shadergraph.meta     |    10 [31m-[m
+ Assets/TextMesh Pro/Shaders/TMP_SDF.shader         |   326 [31m-[m
+ Assets/TextMesh Pro/Shaders/TMP_SDF.shader.meta    |     9 [31m-[m
+ Assets/TextMesh Pro/Shaders/TMP_Sprite.shader      |   131 [31m-[m
+ Assets/TextMesh Pro/Shaders/TMP_Sprite.shader.meta |     9 [31m-[m
+ Assets/TextMesh Pro/Shaders/TMPro.cginc            |    84 [31m-[m
+ Assets/TextMesh Pro/Shaders/TMPro.cginc.meta       |     9 [31m-[m
+ Assets/TextMesh Pro/Shaders/TMPro_Mobile.cginc     |   165 [31m-[m
+ .../TextMesh Pro/Shaders/TMPro_Mobile.cginc.meta   |     9 [31m-[m
+ Assets/TextMesh Pro/Shaders/TMPro_Properties.cginc |    80 [31m-[m
+ .../Shaders/TMPro_Properties.cginc.meta            |     9 [31m-[m
+ Assets/TextMesh Pro/Shaders/TMPro_Surface.cginc    |    99 [31m-[m
+ .../TextMesh Pro/Shaders/TMPro_Surface.cginc.meta  |     9 [31m-[m
+ Assets/TextMesh Pro/Sprites.meta                   |     8 [31m-[m
+ .../TextMesh Pro/Sprites/EmojiOne Attribution.txt  |     3 [31m-[m
+ .../Sprites/EmojiOne Attribution.txt.meta          |     7 [31m-[m
+ Assets/TextMesh Pro/Sprites/EmojiOne.json          |   156 [31m-[m
+ Assets/TextMesh Pro/Sprites/EmojiOne.json.meta     |     8 [31m-[m
+ Assets/TextMesh Pro/Sprites/EmojiOne.png           |   Bin [31m112319[m -> [32m0[m bytes
+ Assets/TextMesh Pro/Sprites/EmojiOne.png.meta      |   431 [31m-[m
+ Assets/XRI.meta                                    |     8 [31m-[m
+ Assets/XRI/Settings.meta                           |     8 [31m-[m
+ Assets/XRI/Settings/Resources.meta                 |     8 [31m-[m
+ .../Resources/InteractionLayerSettings.asset       |    47 [31m-[m
+ .../Resources/InteractionLayerSettings.asset.meta  |     8 [31m-[m
+ .../Resources/XRDeviceSimulatorSettings.asset      |    17 [31m-[m
+ .../Resources/XRDeviceSimulatorSettings.asset.meta |     8 [31m-[m
+ .../XRI/Settings/XRInteractionEditorSettings.asset |    16 [31m-[m
+ .../XRInteractionEditorSettings.asset.meta         |     8 [31m-[m
+ Assets/school.meta                                 |     8 [31m-[m
+ Assets/school/DemoScene.meta                       |     8 [31m-[m
+ Assets/school/DemoScene/all_.unity                 | 30467 [31m------------[m
+ Assets/school/DemoScene/all_.unity.meta            |    14 [31m-[m
+ Assets/school/DemoScene/all_objects.unity          | 25254 [31m----------[m
+ Assets/school/DemoScene/all_objects.unity.meta     |    14 [31m-[m
+ Assets/school/DemoScene/all_objects1_Profiles.meta |     8 [31m-[m
+ .../all_objects1_Profiles/PP Profile.asset         |  1530 [31m-[m
+ .../all_objects1_Profiles/PP Profile.asset.meta    |    15 [31m-[m
+ Assets/school/Prefabs.meta                         |     8 [31m-[m
+ Assets/school/Prefabs/props.meta                   |     8 [31m-[m
+ Assets/school/Prefabs/props/a door.prefab          |   210 [31m-[m
+ Assets/school/Prefabs/props/a door.prefab.meta     |    15 [31m-[m
+ Assets/school/Prefabs/props/a door1.prefab         |   271 [31m-[m
+ Assets/school/Prefabs/props/a door1.prefab.meta    |    15 [31m-[m
+ Assets/school/Prefabs/props/a laptop.prefab        |    84 [31m-[m
+ Assets/school/Prefabs/props/a laptop.prefab.meta   |    15 [31m-[m
+ Assets/school/Prefabs/props/board.prefab           |    84 [31m-[m
+ Assets/school/Prefabs/props/board.prefab.meta      |    15 [31m-[m
+ Assets/school/Prefabs/props/board1.prefab          |    86 [31m-[m
+ Assets/school/Prefabs/props/board1.prefab.meta     |    15 [31m-[m
+ Assets/school/Prefabs/props/board2.prefab          |    83 [31m-[m
+ Assets/school/Prefabs/props/board2.prefab.meta     |    15 [31m-[m
+ Assets/school/Prefabs/props/board2_1 1.prefab      |    81 [31m-[m
+ Assets/school/Prefabs/props/board2_1 1.prefab.meta |    14 [31m-[m
+ Assets/school/Prefabs/props/board2_1.prefab        |    81 [31m-[m
+ Assets/school/Prefabs/props/board2_1.prefab.meta   |    15 [31m-[m
+ Assets/school/Prefabs/props/board2_2 (1).prefab    |    81 [31m-[m
+ .../school/Prefabs/props/board2_2 (1).prefab.meta  |    14 [31m-[m
+ Assets/school/Prefabs/props/board2_2 1.prefab      |    81 [31m-[m
+ Assets/school/Prefabs/props/board2_2 1.prefab.meta |    14 [31m-[m
+ Assets/school/Prefabs/props/board2_2.prefab        |    81 [31m-[m
+ Assets/school/Prefabs/props/board2_2.prefab.meta   |    15 [31m-[m
+ Assets/school/Prefabs/props/book.prefab            |    82 [31m-[m
+ Assets/school/Prefabs/props/book.prefab.meta       |    15 [31m-[m
+ Assets/school/Prefabs/props/book1.prefab           |    82 [31m-[m
+ Assets/school/Prefabs/props/book1.prefab.meta      |    15 [31m-[m
+ Assets/school/Prefabs/props/book10.prefab          |    82 [31m-[m
+ Assets/school/Prefabs/props/book10.prefab.meta     |    15 [31m-[m
+ Assets/school/Prefabs/props/book11.prefab          |    82 [31m-[m
+ Assets/school/Prefabs/props/book11.prefab.meta     |    15 [31m-[m
+ Assets/school/Prefabs/props/book12.prefab          |    82 [31m-[m
+ Assets/school/Prefabs/props/book12.prefab.meta     |    15 [31m-[m
+ Assets/school/Prefabs/props/book13.prefab          |    82 [31m-[m
+ Assets/school/Prefabs/props/book13.prefab.meta     |    15 [31m-[m
+ Assets/school/Prefabs/props/book14.prefab          |    82 [31m-[m
+ Assets/school/Prefabs/props/book14.prefab.meta     |    15 [31m-[m
+ Assets/school/Prefabs/props/book15.prefab          |    82 [31m-[m
+ Assets/school/Prefabs/props/book15.prefab.meta     |    15 [31m-[m
+ Assets/school/Prefabs/props/book16.prefab          |    82 [31m-[m
+ Assets/school/Prefabs/props/book16.prefab.meta     |    15 [31m-[m
+ Assets/school/Prefabs/props/book2.prefab           |    82 [31m-[m
+ Assets/school/Prefabs/props/book2.prefab.meta      |    15 [31m-[m
+ Assets/school/Prefabs/props/book3.prefab           |    82 [31m-[m
+ Assets/school/Prefabs/props/book3.prefab.meta      |    15 [31m-[m
+ Assets/school/Prefabs/props/book4.prefab           |    82 [31m-[m
+ Assets/school/Prefabs/props/book4.prefab.meta      |    15 [31m-[m
+ Assets/school/Prefabs/props/book5.prefab           |    82 [31m-[m
+ Assets/school/Prefabs/props/book5.prefab.meta      |    15 [31m-[m
+ Assets/school/Prefabs/props/book6.prefab           |    82 [31m-[m
+ Assets/school/Prefabs/props/book6.prefab.meta      |    15 [31m-[m
+ Assets/school/Prefabs/props/book7.prefab           |    82 [31m-[m
+ Assets/school/Prefabs/props/book7.prefab.meta      |    15 [31m-[m
+ Assets/school/Prefabs/props/book8.prefab           |    82 [31m-[m
+ Assets/school/Prefabs/props/book8.prefab.meta      |    15 [31m-[m
+ Assets/school/Prefabs/props/book9.prefab           |    82 [31m-[m
+ Assets/school/Prefabs/props/book9.prefab.meta      |    15 [31m-[m
+ Assets/school/Prefabs/props/bus.prefab             |   381 [31m-[m
+ Assets/school/Prefabs/props/bus.prefab.meta        |    14 [31m-[m
+ Assets/school/Prefabs/props/button.prefab          |    81 [31m-[m
+ Assets/school/Prefabs/props/button.prefab.meta     |    15 [31m-[m
+ Assets/school/Prefabs/props/chair.prefab           |    97 [31m-[m
+ Assets/school/Prefabs/props/chair.prefab.meta      |    15 [31m-[m
+ Assets/school/Prefabs/props/chair1.prefab          |    98 [31m-[m
+ Assets/school/Prefabs/props/chair1.prefab.meta     |    15 [31m-[m
+ Assets/school/Prefabs/props/computer.prefab        |    97 [31m-[m
+ Assets/school/Prefabs/props/computer.prefab.meta   |    15 [31m-[m
+ Assets/school/Prefabs/props/computer1.prefab       |    99 [31m-[m
+ Assets/school/Prefabs/props/computer1.prefab.meta  |    15 [31m-[m
+ Assets/school/Prefabs/props/computer2.prefab       |    83 [31m-[m
+ Assets/school/Prefabs/props/computer2.prefab.meta  |    15 [31m-[m
+ Assets/school/Prefabs/props/computer3.prefab       |    82 [31m-[m
+ Assets/school/Prefabs/props/computer3.prefab.meta  |    15 [31m-[m
+ Assets/school/Prefabs/props/fire.prefab            |    99 [31m-[m
+ Assets/school/Prefabs/props/fire.prefab.meta       |    15 [31m-[m
+ Assets/school/Prefabs/props/fire1.prefab           |    83 [31m-[m
+ Assets/school/Prefabs/props/fire1.prefab.meta      |    15 [31m-[m
+ Assets/school/Prefabs/props/jalousie.prefab        |    96 [31m-[m
+ Assets/school/Prefabs/props/jalousie.prefab.meta   |    15 [31m-[m
+ Assets/school/Prefabs/props/locker.prefab          |   100 [31m-[m
+ Assets/school/Prefabs/props/locker.prefab.meta     |    15 [31m-[m
+ Assets/school/Prefabs/props/locker1.prefab         |    99 [31m-[m
+ Assets/school/Prefabs/props/locker1.prefab.meta    |    15 [31m-[m
+ Assets/school/Prefabs/props/locker2.prefab         |   100 [31m-[m
+ Assets/school/Prefabs/props/locker2.prefab.meta    |    15 [31m-[m
+ Assets/school/Prefabs/props/locker_1.prefab        |    99 [31m-[m
+ Assets/school/Prefabs/props/locker_1.prefab.meta   |    15 [31m-[m
+ Assets/school/Prefabs/props/locker_2.prefab        |    99 [31m-[m
+ Assets/school/Prefabs/props/locker_2.prefab.meta   |    15 [31m-[m
+ Assets/school/Prefabs/props/locker_3.prefab        |    99 [31m-[m
+ Assets/school/Prefabs/props/locker_3.prefab.meta   |    15 [31m-[m
+ Assets/school/Prefabs/props/locker_4.prefab        |    99 [31m-[m
+ Assets/school/Prefabs/props/locker_4.prefab.meta   |    15 [31m-[m
+ Assets/school/Prefabs/props/locker_5.prefab        |    99 [31m-[m
+ Assets/school/Prefabs/props/locker_5.prefab.meta   |    15 [31m-[m
+ Assets/school/Prefabs/props/projector.prefab       |    84 [31m-[m
+ Assets/school/Prefabs/props/projector.prefab.meta  |    15 [31m-[m
+ Assets/school/Prefabs/props/rack.prefab            |    98 [31m-[m
+ Assets/school/Prefabs/props/rack.prefab.meta       |    15 [31m-[m
+ Assets/school/Prefabs/props/rack1.prefab           |  7650 [31m---[m
+ Assets/school/Prefabs/props/rack1.prefab.meta      |    15 [31m-[m
+ Assets/school/Prefabs/props/sheet.prefab           |    81 [31m-[m
+ Assets/school/Prefabs/props/sheet.prefab.meta      |    15 [31m-[m
+ Assets/school/Prefabs/props/sheet1.prefab          |    81 [31m-[m
+ Assets/school/Prefabs/props/sheet1.prefab.meta     |    15 [31m-[m
+ Assets/school/Prefabs/props/sheet2.prefab          |    81 [31m-[m
+ Assets/school/Prefabs/props/sheet2.prefab.meta     |    15 [31m-[m
+ Assets/school/Prefabs/props/sheet3.prefab          |    81 [31m-[m
+ Assets/school/Prefabs/props/sheet3.prefab.meta     |    15 [31m-[m
+ Assets/school/Prefabs/props/sheet4.prefab          |    81 [31m-[m
+ Assets/school/Prefabs/props/sheet4.prefab.meta     |    15 [31m-[m
+ Assets/school/Prefabs/props/showcase.prefab        |    98 [31m-[m
+ Assets/school/Prefabs/props/showcase.prefab.meta   |    15 [31m-[m
+ Assets/school/Prefabs/props/speaker.prefab         |    82 [31m-[m
+ Assets/school/Prefabs/props/speaker.prefab.meta    |    15 [31m-[m
+ Assets/school/Prefabs/props/table1.prefab          |   101 [31m-[m
+ Assets/school/Prefabs/props/table1.prefab.meta     |    15 [31m-[m
+ Assets/school/Prefabs/props/table2.prefab          |    97 [31m-[m
+ Assets/school/Prefabs/props/table2.prefab.meta     |    15 [31m-[m
+ Assets/school/Prefabs/props/table3.prefab          |    98 [31m-[m
+ Assets/school/Prefabs/props/table3.prefab.meta     |    15 [31m-[m
+ Assets/school/Prefabs/props/tray.prefab            |    81 [31m-[m
+ Assets/school/Prefabs/props/tray.prefab.meta       |    15 [31m-[m
+ Assets/school/Prefabs/props/wall.prefab            |    96 [31m-[m
+ Assets/school/Prefabs/props/wall.prefab.meta       |    15 [31m-[m
+ Assets/school/Prefabs/props/wall001.prefab         |   160 [31m-[m
+ Assets/school/Prefabs/props/wall001.prefab.meta    |    15 [31m-[m
+ Assets/school/Prefabs/props/wall2.prefab           |    81 [31m-[m
+ Assets/school/Prefabs/props/wall2.prefab.meta      |    15 [31m-[m
+ Assets/school/Prefabs/props/wall4 (1).prefab       |    96 [31m-[m
+ Assets/school/Prefabs/props/wall4 (1).prefab.meta  |    15 [31m-[m
+ Assets/school/Prefabs/props/wall4 (2).prefab       |    97 [31m-[m
+ Assets/school/Prefabs/props/wall4 (2).prefab.meta  |    15 [31m-[m
+ Assets/school/Prefabs/props/wall4.prefab           |    97 [31m-[m
+ Assets/school/Prefabs/props/wall4.prefab.meta      |    15 [31m-[m
+ Assets/school/Prefabs/road.meta                    |     8 [31m-[m
+ .../Prefabs/road/doroga \342\200\224 krest.prefab" |    95 [31m-[m
+ .../road/doroga \342\200\224 krest.prefab.meta"    |    15 [31m-[m
+ Assets/school/Prefabs/road/doroga.prefab           |    99 [31m-[m
+ Assets/school/Prefabs/road/doroga.prefab.meta      |    15 [31m-[m
+ Assets/school/Prefabs/road/floor.prefab            |    95 [31m-[m
+ Assets/school/Prefabs/road/floor.prefab.meta       |    15 [31m-[m
+ Assets/school/Prefabs/road/floor1.prefab           |    95 [31m-[m
+ Assets/school/Prefabs/road/floor1.prefab.meta      |    15 [31m-[m
+ Assets/school/material.meta                        |     8 [31m-[m
+ Assets/school/material/1.png                       |   Bin [31m11731[m -> [32m0[m bytes
+ Assets/school/material/1.png.meta                  |    98 [31m-[m
+ Assets/school/material/Materials.meta              |     8 [31m-[m
+ Assets/school/material/Materials/1.mat             |    84 [31m-[m
+ Assets/school/material/Materials/1.mat.meta        |    15 [31m-[m
+ Assets/school/material/Materials/floor_color.mat   |    77 [31m-[m
+ .../school/material/Materials/floor_color.mat.meta |    15 [31m-[m
+ Assets/school/props.meta                           |     8 [31m-[m
+ Assets/school/props/a door.fbx                     |   Bin [31m22896[m -> [32m0[m bytes
+ Assets/school/props/a door.fbx.meta                |   111 [31m-[m
+ Assets/school/props/a door1.fbx                    |   Bin [31m27824[m -> [32m0[m bytes
+ Assets/school/props/a door1.fbx.meta               |   117 [31m-[m
+ Assets/school/props/a laptop.fbx                   |   Bin [31m30096[m -> [32m0[m bytes
+ Assets/school/props/a laptop.fbx.meta              |   104 [31m-[m
+ Assets/school/props/board.fbx                      |   Bin [31m16896[m -> [32m0[m bytes
+ Assets/school/props/board.fbx.meta                 |   104 [31m-[m
+ Assets/school/props/board1.fbx                     |   Bin [31m17808[m -> [32m0[m bytes
+ Assets/school/props/board1.fbx.meta                |   106 [31m-[m
+ Assets/school/props/board2.fbx                     |   Bin [31m17584[m -> [32m0[m bytes
+ Assets/school/props/board2.fbx.meta                |   103 [31m-[m
+ Assets/school/props/board2_1.fbx                   |   Bin [31m20032[m -> [32m0[m bytes
+ Assets/school/props/board2_1.fbx.meta              |   186 [31m-[m
+ Assets/school/props/board2_2.fbx                   |   Bin [31m19712[m -> [32m0[m bytes
+ Assets/school/props/board2_2.fbx.meta              |   182 [31m-[m
+ Assets/school/props/book.fbx                       |   Bin [31m17104[m -> [32m0[m bytes
+ Assets/school/props/book.fbx.meta                  |   102 [31m-[m
+ Assets/school/props/book1.fbx                      |   Bin [31m17136[m -> [32m0[m bytes
+ Assets/school/props/book1.fbx.meta                 |   102 [31m-[m
+ Assets/school/props/book10.fbx                     |   Bin [31m17120[m -> [32m0[m bytes
+ Assets/school/props/book10.fbx.meta                |   102 [31m-[m
+ Assets/school/props/book11.fbx                     |   Bin [31m17120[m -> [32m0[m bytes
+ Assets/school/props/book11.fbx.meta                |   102 [31m-[m
+ Assets/school/props/book12.fbx                     |   Bin [31m17120[m -> [32m0[m bytes
+ Assets/school/props/book12.fbx.meta                |   102 [31m-[m
+ Assets/school/props/book13.fbx                     |   Bin [31m17136[m -> [32m0[m bytes
+ Assets/school/props/book13.fbx.meta                |   102 [31m-[m
+ Assets/school/props/book14.fbx                     |   Bin [31m17136[m -> [32m0[m bytes
+ Assets/school/props/book14.fbx.meta                |   102 [31m-[m
+ Assets/school/props/book15.fbx                     |   Bin [31m17136[m -> [32m0[m bytes
+ Assets/school/props/book15.fbx.meta                |   102 [31m-[m
+ Assets/school/props/book16.fbx                     |   Bin [31m17120[m -> [32m0[m bytes
+ Assets/school/props/book16.fbx.meta                |   102 [31m-[m
+ Assets/school/props/book2.fbx                      |   Bin [31m17152[m -> [32m0[m bytes
+ Assets/school/props/book2.fbx.meta                 |   102 [31m-[m
+ Assets/school/props/book3.fbx                      |   Bin [31m17152[m -> [32m0[m bytes
+ Assets/school/props/book3.fbx.meta                 |   102 [31m-[m
+ Assets/school/props/book4.fbx                      |   Bin [31m17136[m -> [32m0[m bytes
+ Assets/school/props/book4.fbx.meta                 |   102 [31m-[m
+ Assets/school/props/book5.fbx                      |   Bin [31m17120[m -> [32m0[m bytes
+ Assets/school/props/book5.fbx.meta                 |   102 [31m-[m
+ Assets/school/props/book6.fbx                      |   Bin [31m17152[m -> [32m0[m bytes
+ Assets/school/props/book6.fbx.meta                 |   102 [31m-[m
+ Assets/school/props/book7.fbx                      |   Bin [31m17136[m -> [32m0[m bytes
+ Assets/school/props/book7.fbx.meta                 |   102 [31m-[m
+ Assets/school/props/book8.fbx                      |   Bin [31m17120[m -> [32m0[m bytes
+ Assets/school/props/book8.fbx.meta                 |   102 [31m-[m
+ Assets/school/props/book9.fbx                      |   Bin [31m17136[m -> [32m0[m bytes
+ Assets/school/props/book9.fbx.meta                 |   102 [31m-[m
+ Assets/school/props/bus.fbx                        |   Bin [31m182960[m -> [32m0[m bytes
+ Assets/school/props/bus.fbx.meta                   |   132 [31m-[m
+ Assets/school/props/button.fbx                     |   Bin [31m16208[m -> [32m0[m bytes
+ Assets/school/props/button.fbx.meta                |   101 [31m-[m
+ Assets/school/props/chair.fbx                      |   Bin [31m18880[m -> [32m0[m bytes
+ Assets/school/props/chair.fbx.meta                 |   102 [31m-[m
+ Assets/school/props/chair1.fbx                     |   Bin [31m21088[m -> [32m0[m bytes
+ Assets/school/props/chair1.fbx.meta                |   103 [31m-[m
+ Assets/school/props/computer.fbx                   |   Bin [31m17008[m -> [32m0[m bytes
+ Assets/school/props/computer.fbx.meta              |   102 [31m-[m
+ Assets/school/props/computer1.fbx                  |   Bin [31m17216[m -> [32m0[m bytes
+ Assets/school/props/computer1.fbx.meta             |   104 [31m-[m
+ Assets/school/props/computer2.fbx                  |   Bin [31m34400[m -> [32m0[m bytes
+ Assets/school/props/computer2.fbx.meta             |   103 [31m-[m
+ Assets/school/props/computer3.fbx                  |   Bin [31m16992[m -> [32m0[m bytes
+ Assets/school/props/computer3.fbx.meta             |   102 [31m-[m
+ Assets/school/props/fire.fbx                       |   Bin [31m19776[m -> [32m0[m bytes
+ Assets/school/props/fire.fbx.meta                  |   104 [31m-[m
+ Assets/school/props/fire1.fbx                      |   Bin [31m17936[m -> [32m0[m bytes
+ Assets/school/props/fire1.fbx.meta                 |   103 [31m-[m
+ Assets/school/props/jalousie.fbx                   |   Bin [31m17824[m -> [32m0[m bytes
+ Assets/school/props/jalousie.fbx.meta              |   101 [31m-[m
+ Assets/school/props/locker.fbx                     |   Bin [31m17712[m -> [32m0[m bytes
+ Assets/school/props/locker.fbx.meta                |   105 [31m-[m
+ Assets/school/props/locker1.fbx                    |   Bin [31m17440[m -> [32m0[m bytes
+ Assets/school/props/locker1.fbx.meta               |   104 [31m-[m
+ Assets/school/props/locker2.fbx                    |   Bin [31m17632[m -> [32m0[m bytes
+ Assets/school/props/locker2.fbx.meta               |   105 [31m-[m
+ Assets/school/props/locker_1.fbx                   |   Bin [31m18432[m -> [32m0[m bytes
+ Assets/school/props/locker_1.fbx.meta              |   104 [31m-[m
+ Assets/school/props/locker_2.fbx                   |   Bin [31m18464[m -> [32m0[m bytes
+ Assets/school/props/locker_2.fbx.meta              |   104 [31m-[m
+ Assets/school/props/locker_3.fbx                   |   Bin [31m17984[m -> [32m0[m bytes
+ Assets/school/props/locker_3.fbx.meta              |   104 [31m-[m
+ Assets/school/props/locker_4.fbx                   |   Bin [31m18432[m -> [32m0[m bytes
+ Assets/school/props/locker_4.fbx.meta              |   104 [31m-[m
+ Assets/school/props/locker_5.fbx                   |   Bin [31m18448[m -> [32m0[m bytes
+ Assets/school/props/locker_5.fbx.meta              |   104 [31m-[m
+ Assets/school/props/projector.fbx                  |   Bin [31m19856[m -> [32m0[m bytes
+ Assets/school/props/projector.fbx.meta             |   104 [31m-[m
+ Assets/school/props/rack.fbx                       |   Bin [31m18704[m -> [32m0[m bytes
+ Assets/school/props/rack.fbx.meta                  |   670 [31m-[m
+ Assets/school/props/rack1.fbx                      |   Bin [31m690128[m -> [32m0[m bytes
+ Assets/school/props/rack1.fbx.meta                 |   672 [31m-[m
+ Assets/school/props/sheet.fbx                      |   Bin [31m16096[m -> [32m0[m bytes
+ Assets/school/props/sheet.fbx.meta                 |   101 [31m-[m
+ Assets/school/props/sheet1.fbx                     |   Bin [31m16096[m -> [32m0[m bytes
+ Assets/school/props/sheet1.fbx.meta                |   101 [31m-[m
+ Assets/school/props/sheet2.fbx                     |   Bin [31m16096[m -> [32m0[m bytes
+ Assets/school/props/sheet2.fbx.meta                |   101 [31m-[m
+ Assets/school/props/sheet3.fbx                     |   Bin [31m16096[m -> [32m0[m bytes
+ Assets/school/props/sheet3.fbx.meta                |   101 [31m-[m
+ Assets/school/props/sheet4.fbx                     |   Bin [31m16096[m -> [32m0[m bytes
+ Assets/school/props/sheet4.fbx.meta                |   101 [31m-[m
+ Assets/school/props/showcase.fbx                   |   Bin [31m40320[m -> [32m0[m bytes
+ Assets/school/props/showcase.fbx.meta              |   103 [31m-[m
+ Assets/school/props/speaker.fbx                    |   Bin [31m16336[m -> [32m0[m bytes
+ Assets/school/props/speaker.fbx.meta               |   102 [31m-[m
+ Assets/school/props/table1.fbx                     |   Bin [31m19184[m -> [32m0[m bytes
+ Assets/school/props/table1.fbx.meta                |   106 [31m-[m
+ Assets/school/props/table2.fbx                     |   Bin [31m25264[m -> [32m0[m bytes
+ Assets/school/props/table2.fbx.meta                |   102 [31m-[m
+ Assets/school/props/table3.fbx                     |   Bin [31m17904[m -> [32m0[m bytes
+ Assets/school/props/table3.fbx.meta                |   103 [31m-[m
+ Assets/school/props/tray.fbx                       |   Bin [31m16896[m -> [32m0[m bytes
+ Assets/school/props/tray.fbx.meta                  |   101 [31m-[m
+ Assets/school/props/wall.fbx                       |   Bin [31m17120[m -> [32m0[m bytes
+ Assets/school/props/wall.fbx.meta                  |   101 [31m-[m
+ Assets/school/props/wall001.fbx                    |   Bin [31m22816[m -> [32m0[m bytes
+ Assets/school/props/wall001.fbx.meta               |   109 [31m-[m
+ Assets/school/props/wall2.fbx                      |   Bin [31m16096[m -> [32m0[m bytes
+ Assets/school/props/wall2.fbx.meta                 |   101 [31m-[m
+ Assets/school/props/wall4 (1).fbx                  |   Bin [31m16096[m -> [32m0[m bytes
+ Assets/school/props/wall4 (1).fbx.meta             |   101 [31m-[m
+ Assets/school/props/wall4 (2).fbx                  |   Bin [31m17184[m -> [32m0[m bytes
+ Assets/school/props/wall4 (2).fbx.meta             |   102 [31m-[m
+ Assets/school/props/wall4.fbx                      |   Bin [31m17344[m -> [32m0[m bytes
+ Assets/school/props/wall4.fbx.meta                 |   102 [31m-[m
+ Assets/school/road.meta                            |     8 [31m-[m
+ "Assets/school/road/doroga \342\200\224 krest.fbx" |   Bin [31m16384[m -> [32m0[m bytes
+ .../road/doroga \342\200\224 krest.fbx.meta"       |   101 [31m-[m
+ Assets/school/road/doroga.fbx                      |   Bin [31m16992[m -> [32m0[m bytes
+ Assets/school/road/doroga.fbx.meta                 |   105 [31m-[m
+ Assets/school/road/floor.fbx                       |   Bin [31m16192[m -> [32m0[m bytes
+ Assets/school/road/floor.fbx.meta                  |   101 [31m-[m
+ Assets/school/road/floor1.fbx                      |   Bin [31m16192[m -> [32m0[m bytes
+ Assets/school/road/floor1.fbx.meta                 |   101 [31m-[m
+ CONTRIBUTING.md                                    |    65 [32m+[m
+ LICENSE                                            |    21 [32m+[m
+ Packages/manifest.json                             |    44 [31m-[m
+ Packages/packages-lock.json                        |   456 [31m-[m
+ ProjectSettings/AudioManager.asset                 |    19 [31m-[m
+ ProjectSettings/ClusterInputManager.asset          |     6 [31m-[m
+ ProjectSettings/DynamicsManager.asset              |    34 [31m-[m
+ ProjectSettings/EditorBuildSettings.asset          |     8 [31m-[m
+ ProjectSettings/EditorSettings.asset               |    30 [31m-[m
+ ProjectSettings/GraphicsSettings.asset             |    63 [31m-[m
+ ProjectSettings/InputManager.asset                 |   295 [31m-[m
+ ProjectSettings/MemorySettings.asset               |    35 [31m-[m
+ ProjectSettings/NavMeshAreas.asset                 |    91 [31m-[m
+ ProjectSettings/PackageManagerSettings.asset       |    35 [31m-[m
+ .../Packages/com.unity.probuilder/Settings.json    |    86 [31m-[m
+ .../com.unity.testtools.codecoverage/Settings.json |     5 [31m-[m
+ ProjectSettings/Physics2DSettings.asset            |    56 [31m-[m
+ ProjectSettings/PresetManager.asset                |     7 [31m-[m
+ ProjectSettings/ProjectSettings.asset              |   864 [31m-[m
+ ProjectSettings/ProjectVersion.txt                 |     2 [31m-[m
+ ProjectSettings/QualitySettings.asset              |   234 [31m-[m
+ ProjectSettings/SceneTemplateSettings.json         |   121 [31m-[m
+ ProjectSettings/TagManager.asset                   |    43 [31m-[m
+ ProjectSettings/TimeManager.asset                  |     9 [31m-[m
+ ProjectSettings/UnityConnectSettings.asset         |    36 [31m-[m
+ ProjectSettings/VFXManager.asset                   |    12 [31m-[m
+ ProjectSettings/VersionControlSettings.asset       |     8 [31m-[m
+ ProjectSettings/XRSettings.asset                   |    10 [31m-[m
+ README.md                                          |   111 [32m+[m
+ docs/arquitectura.md                               |    57 [32m+[m
+ docs/avance_semanal.md                             |    62 [32m+[m
+ docs/usabilidad.md                                 |    35 [32m+[m
+ 1308 files changed, 569 insertions(+), 299627 deletions(-)
