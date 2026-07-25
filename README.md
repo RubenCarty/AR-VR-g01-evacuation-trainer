@@ -64,10 +64,10 @@ evacuación para reforzar el aprendizaje.
 
 | Integrante | Rol | Scripts / módulos a cargo |
 |------------|-----|---------------------------|
-| Juan Carlos Chacon | Líder técnico / flujo del simulacro | `GestorEvacuacion.cs`, `SalidaSegura.cs` |
-| silva Garate gonzalo | Locomoción VR | `TeleportSystem.cs`, anclas y áreas de teleport |
-| Juan Carlos Chacon  | Gameplay y evaluación | `EvaluadorDecisiones.cs`, `PuntoDecision.cs`, `ZonaPeligro.cs` |
-| Camacho Salazar Mauro Armando | Accesibilidad y UI | `AccesibilidadManager.cs`, `HUDEvacuacion.cs`, `SenalEvacuacion.cs` |
+| Juan Carlos Chacon Ccora| Líder técnico / flujo del simulacro | `GestorEvacuacion.cs`, `SalidaSegura.cs` |
+| Camacho Salazar Mauro Armando| Locomoción VR | `TeleportSystem.cs`, anclas y áreas de teleport |
+| Castro Salazar Mauro Armando  | Gameplay y evaluación | `EvaluadorDecisiones.cs`, `PuntoDecision.cs`, `ZonaPeligro.cs` |
+| Garate silva Gonzalo | Accesibilidad y UI | `AccesibilidadManager.cs`, `HUDEvacuacion.cs`, `SenalEvacuacion.cs` |
 | Juan Carlos Chacon | Escenario, audio y pruebas | `ConstructorEscuela.cs`, `AlarmaIncendio.cs`, `BenchmarkXR.cs`, plan de pruebas |
 
 ---
