@@ -65,9 +65,9 @@ evacuación para reforzar el aprendizaje.
 | Integrante | Rol | Scripts / módulos a cargo |
 |------------|-----|---------------------------|
 | Juan Carlos Chacon | Líder técnico / flujo del simulacro | `GestorEvacuacion.cs`, `SalidaSegura.cs` |
-| Juan Carlos Chacon  | Locomoción VR | `TeleportSystem.cs`, anclas y áreas de teleport |
+| silva Garate gonzalo | Locomoción VR | `TeleportSystem.cs`, anclas y áreas de teleport |
 | Juan Carlos Chacon  | Gameplay y evaluación | `EvaluadorDecisiones.cs`, `PuntoDecision.cs`, `ZonaPeligro.cs` |
-| Juan Carlos Chacon  | Accesibilidad y UI | `AccesibilidadManager.cs`, `HUDEvacuacion.cs`, `SenalEvacuacion.cs` |
+| Camacho Salazar Mauro Armando | Accesibilidad y UI | `AccesibilidadManager.cs`, `HUDEvacuacion.cs`, `SenalEvacuacion.cs` |
 | Juan Carlos Chacon | Escenario, audio y pruebas | `ConstructorEscuela.cs`, `AlarmaIncendio.cs`, `BenchmarkXR.cs`, plan de pruebas |
 
 ---
@@ -245,6 +245,8 @@ EscuelaEvacuacion.unity
 ---
 
 ## Capturas
+<img width="2560" height="1440" alt="WhatsApp Image 2026-07-25 at 12 42 38 AM" src="https://github.com/user-attachments/assets/2272ef5d-5301-494b-9c08-027a93ba3461" />
+<img width="1207" height="940" alt="image" src="https://github.com/user-attachments/assets/f7e2ecc9-f883-4fdf-b5d0-b6409a7cab65" />
 
 _(agregar mínimo 3 screenshots reales en `docs/capturas/` y referenciarlas aquí)_
 
@@ -257,6 +259,8 @@ _(agregar mínimo 3 screenshots reales en `docs/capturas/` y referenciarlas aqu�
 ## Video demo
 
 _(agregar link de YouTube no listado o Google Drive)_
+https://drive.google.com/file/d/14jJSiSwtyRMXhWMUBhmcsKtssalujAOp/view?usp=sharing
+
 
 ---
 
